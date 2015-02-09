@@ -42,7 +42,7 @@
 
 ##### Factor: could add factor to object
 
-##### Can add names attribute to vector and list
+##### Names: Can add names attribute to vector and list
 
 ##### Operstions 
 - is.na(a)
