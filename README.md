@@ -61,7 +61,7 @@
 
 ##### Remove NA values
 - is.na()
-+ <pre><code>
+<pre><code>
 f <- c(1,2,3,NA,4,NA)
 bad <- is.na(f)
 f[!bad]
@@ -74,6 +74,6 @@ h <- c("a", NA, "b", NA, "c", "d")
 good <- complete.cases(g,h)
 g[good]
 h[good]
-</code</pre>>
+</code</pre>
 
 #### Start at Sunday, Feb 01, 2015
