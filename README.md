@@ -50,4 +50,30 @@
 
 ---
 
+#### Subsettings
+
+##### Subset
+1. use "[]" to subset
+2. use "$" to subset
+3. "[]" can use variable
+4. "$" can partial matching
+5. "[]" can partical mathing use exact=FALSE
+
+##### Remove NA values
+- is.na()
++ <pre><code>
+f <- c(1,2,3,NA,4,NA)
+bad <- is.na(f)
+f[!bad]
+</code></pre>
+
+- complete cases
+<pre><code>
+g <- c(1,2,NA,4,NA,5)
+h <- c("a", NA, "b", NA, "c", "d")
+good <- complete.cases(g,h)
+g[good]
+h[good]
+</code</pre>>
+
 #### Start at Sunday, Feb 01, 2015
