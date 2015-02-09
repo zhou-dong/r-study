@@ -1,3 +1,4 @@
+# factors
 x <- c("yes", "yes", "no", "yes", "no")
 x
 
@@ -17,6 +18,7 @@ a <- c("a", "b", NaN, NA, "c")
 is.na(a)
 is.nan(a)
 
+# names
 b <- 1:3
 names(b)
 names(b) <- c("first", "second", "third")
