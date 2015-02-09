@@ -54,21 +54,21 @@ class(f)
 g <- c(1+0i, 2+4i)
 class(g)
 
+# create vectors with different class with change to same class
 k <- c(1.7, "a")
 class(k) #"character"
 l <- c(T, 1.0)
-
 class(l) #"numeric"
-
 m <- c(F, "m")
-m
 class(m) #"character"
 
+# use vector method to create vector
 h <- vector("numeric", length=10)
 class(h)
 i <- vector("integer", length=15) 
 class(i)
 
+# as operator
 n <- 1:16
 class(n)
 as.numeric(n)
