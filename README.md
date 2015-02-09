@@ -61,19 +61,15 @@
 
 ##### Remove NA values
 - is.na()
-<pre><code>
-f <- c(1,2,3,NA,4,NA)
-bad <- is.na(f)
-f[!bad]
-</code></pre>
+    f <- c(1,2,3,NA,4,NA)
+    bad <- is.na(f)
+    f[!bad]
 
 - complete cases
-<pre><code>
-g <- c(1,2,NA,4,NA,5)
-h <- c("a", NA, "b", NA, "c", "d")
-good <- complete.cases(g,h)
-g[good]
-h[good]
-</code</pre>
+    g <- c(1,2,NA,4,NA,5)
+    h <- c("a", NA, "b", NA, "c", "d")
+    good <- complete.cases(g,h)
+    g[good]
+    h[good]
 
 #### Start at Sunday, Feb 01, 2015
