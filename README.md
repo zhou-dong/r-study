@@ -1,4 +1,4 @@
-# R-study Notes
+# R Language Study Notes
 
 #### 1. Data types of R language
 
