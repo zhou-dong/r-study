@@ -76,19 +76,21 @@
 
 #### 4. vectorized Operations
 1. normal vectorized operations
- - a + b
- - a - b
-- a * b
- - a / b
+    - a + b
+    - a - b
+    - a * b
+    - a / b
 2. vectorized Matrix Operations
-- a + b
-- a - b
-- a * b
-- a / b
+    - a + b
+    - a - b
+    - a * b
+    - a / b
 3. true matrix multiplication
-- `a %*% b`
+    - `a %*% b`
 
 ---
 
-#### 5.
+#### 5. Reading and Writing data
+
+
 #### Start at Sunday, Feb 01, 2015
