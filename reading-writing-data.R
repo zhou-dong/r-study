@@ -5,5 +5,9 @@
 # load                      for reading in saved workspaces
 # unserialize               for reading in single R object in binary form
 
-
-years
+# write.table
+# writeLines
+# dump
+# dput
+# save
+# serialize

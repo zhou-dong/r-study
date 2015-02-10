@@ -96,7 +96,7 @@
 
 | Method | Description |
 | :-- | :-- |
-| read.table and read.cvs  | for reading tabular data |
+| read.table,    read.cvs  | for reading tabular data |
 | readLines                | for reading line of text file |
 | source                   | for reading in R code file (inverse of dump) |
 | dget                     | for reading in R code file (inverse of dput) |
@@ -104,5 +104,14 @@
 | unserialize              | for reading in single R object in binary form |
 
 ##### Writing data
+
+| Method | Description |
+| :-- | :-- |
+| write.table              | for writing tabular data |
+| writeLines               | for writing line of text file |
+| dump                     | for writing in R code file |
+| dput                     | for writing in R code file |
+| save                     | for writing in saved workspaces |
+| serialize                | for writing in single R object to binary form |
 
 #### Start at Sunday, Feb 01, 2015
