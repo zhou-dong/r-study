@@ -92,5 +92,14 @@
 
 #### 5. Reading and Writing data
 
+##### Reading data
+| read.table and read.cvs  | for reading tabular data |
+| readLines                | for reading line of text file |
+| source                   | for reading in R code file (inverse of dump) |
+| dget                     | for reading in R code file (inverse of dput) |
+| load                     | for reading in saved workspaces |
+| unserialize              | for reading in single R object in binary form |
+
+##### Writing data
 
 #### Start at Sunday, Feb 01, 2015
