@@ -163,11 +163,8 @@
 1. as.Date("1970-01-01")
 2. Sys.time()
 3. %B, %d, %Y %H:%M
-
-##### Times
-
-- POSIXct: as.POSIXct(y)
-- POSIXlt: as.POSIXlt(y)
+4. POSIXct: as.POSIXct(y)
+5. POSIXlt: as.POSIXlt(y)
 
 ---
 
