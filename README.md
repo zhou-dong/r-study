@@ -132,6 +132,14 @@
 2. check for partial match
 3. check for positional match 
 
+##### Lazy Evaluation
+- pretty cool things
+
+##### ... Argument
+- if wanna change some of the argument and leave others can use ...
+- generic function
+- argument after ... must be named
+
 ---
 
 ##### Start at Sunday, Feb 01, 2015
