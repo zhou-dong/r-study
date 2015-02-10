@@ -151,4 +151,11 @@
 
 ---
 
+#### 8. Scoping
+
+- Lexical Scoping
+- function can return function
+
+---
+
 ##### Start at Sunday, Feb 01, 2015
