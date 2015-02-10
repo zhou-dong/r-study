@@ -80,14 +80,15 @@
  - a - b
 - a * b
  - a / b
-- `a > 2`
 2. vectorized Matrix Operations
 - a + b
 - a - b
 - a * b
 - a / b
-- `a > 2`
 3. true matrix multiplication
- - `a %*% b`
+- `a %*% b`
 
+---
+
+#### 5.
 #### Start at Sunday, Feb 01, 2015
