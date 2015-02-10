@@ -158,4 +158,27 @@
 
 ---
 
+#### 9. Dates and Times
+
+1. as.Date("1970-01-01")
+2. Sys.time()
+3. %B, %d, %Y %H:%M
+
+##### Times
+
+- POSIXct: as.POSIXct(y)
+- POSIXlt: as.POSIXlt(y)
+
+---
+
+#### 10. Loop Functions 
+
+- lapply
+- apply
+- mapply
+- tapply
+- split
+
+---
+
 ##### Start at Sunday, Feb 01, 2015
