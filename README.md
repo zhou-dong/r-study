@@ -178,4 +178,14 @@
 
 ---
 
+#### 11. str function
+
+Like to toString() method in JAVA
+
+- str()
+- summary()
+- head()
+
+---
+
 ##### Start at Sunday, Feb 01, 2015
