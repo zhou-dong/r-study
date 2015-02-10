@@ -94,6 +94,7 @@
 
 ##### Reading data
 
+| Method | Description |
 | :-- | :-- |
 | read.table and read.cvs  | for reading tabular data |
 | readLines                | for reading line of text file |
