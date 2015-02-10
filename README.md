@@ -118,6 +118,15 @@
 
 #### 6. Control Structure
 
+| operator | explain |
+|:--|:--|
+| if, else | testing a condition |
+| for | execute a loop a fixed number of times |
+| while | execute a loop while a condition is true |
+| repeat | execute an infinite loop |
+| break | break the execution of a loop |
+| next | skip an interation of a loop |
+
 ---
 
 #### 7. Function
