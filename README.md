@@ -114,4 +114,24 @@
 | save                     | for writing in saved workspaces |
 | serialize                | for writing in single R object to binary form |
 
-#### Start at Sunday, Feb 01, 2015
+---
+
+#### 6. Control Structure
+
+---
+
+#### 7. Function
+
+- function in R in first class object
+- arguments can have default value
+- argument can match by name, don't need position
+
+##### Argument Matching 
+
+1. check for exact match for a named argument
+2. check for partial match
+3. check for positional match 
+
+---
+
+##### Start at Sunday, Feb 01, 2015
