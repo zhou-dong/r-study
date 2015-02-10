@@ -1,6 +1,6 @@
 # R-study Notes
 
-#### Data types of R language
+#### 1. Data types of R language
 
 ##### Five basic or "atmoic" class in R
  1. character
@@ -31,7 +31,7 @@
 
 ---
  
-#### Factors of R language
+#### 2. Factors of R language
 
 ##### Data Frames
 - create by calling:
@@ -50,7 +50,7 @@
 
 ---
 
-#### Subsettings
+#### 3. Subsettings
 
 ##### Subset
 1. use "[]" to subset
@@ -61,15 +61,23 @@
 
 ##### Remove NA values
 - is.na()  
-    f <- c(1,2,3,NA,4,NA)  
+   `f <- c(1,2,3,NA,4,NA)  
     bad <- is.na(f)  
-    f[!bad]  
+    f[!bad]` 
 
 - complete cases  
-    g <- c(1,2,NA,4,NA,5)  
+    `g <- c(1,2,NA,4,NA,5)  
     h <- c("a", NA, "b", NA, "c", "d")  
     good <- complete.cases(g,h)  
     g[good]  
-    h[good]  
+    h[good]` 
+
+---
+
+#### 4. vectorized Operations
+1. normal vectorized operations
+2. vectorized Matrix Operations
+3. true matrix multiplication
+ - a %*% b
 
 #### Start at Sunday, Feb 01, 2015
