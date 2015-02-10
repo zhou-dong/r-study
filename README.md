@@ -94,6 +94,7 @@
 
 ##### Reading data
 
+| :-- | :-- |
 | read.table and read.cvs  | for reading tabular data |
 | readLines                | for reading line of text file |
 | source                   | for reading in R code file (inverse of dump) |
