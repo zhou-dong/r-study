@@ -188,4 +188,14 @@ Like to toString() method in JAVA
 
 ---
 
+#### 12. Simulation
+
+- Drawing sample from specific probablity distributions can be done with r* function
+- Standard distributions are build in: Normal, Poisson, Binomial, Exponential, Gamma, etc.
+- The sample function can be used to draw random samples from arbitary vectors
+- Setting the random number generator seed via set seed is critical for reproducibility
+
+---
+
 ##### Start at Sunday, Feb 01, 2015
+
