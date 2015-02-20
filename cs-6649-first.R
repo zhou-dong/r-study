@@ -15,7 +15,7 @@ graph=rgraph(N,1,plink,"digraph",TRUE)
 gplot(graph,gmode="digraph", displaylabels=TRUE)
 
 # Define the cars vector with 5 values
-cars <- c(1, 3, 6, 4, 9)
+#cars <- c(1, 3, 6, 4, 9)
 
 # Graph the cars vector with all defaults
-plot(cars)
+#plot(cars)
