@@ -54,3 +54,6 @@ library(igraph)
 g<-random.graph.game(20,5/20, directed=TRUE)
 page.rank(g)$vector
 plot(g)
+
+
+print sth
