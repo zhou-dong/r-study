@@ -19,3 +19,5 @@ t <- data(15)
 print(t)
 plot(t, type = "p",xlab = "x-0",col=rainbow(15L), ylab = "x-2", main="perceptron")
 points(t, cex = .6, col = "dark red")
+
+# still working on the algorithm
