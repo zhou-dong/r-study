@@ -9,17 +9,17 @@
 \begin{document} 
   \maketitle
   
-  \section{Q1}
-  Solve \: the \:following\:linear\:programming\:problem:
-  \begin{flalign*}
-    \begin{split}
+  \section{Q1} Solve the following linear programming problem:
+
+  Question:
+
+  \begin{flalign}
     \textbf{Min}\:\: f(x_1,x_2):\:\:x_1+x_2\\ \textbf{Subject to:}\: 3x_1-x_2\leq3\\ x_1+2x_2\leq5\\ x_1+x_2\leq4\\ x_1\ge0; x_2\: unrestricted\: in\:sign. \:\:\:\:\:\:\:\:\:\:\:\:\textbf{(8)}
-    \end{split}
-  \end{flalign*}
+  \end{flalign}
 
   Answer:
   
-  Let: $$x_2 = x'_{2} - x''_{2}$$
+  From $x_2$ is unrestricted, we can let: $x_2 = x'_{2} - x''_{2}$
   \begin{table}[H]
   \centering
   \caption{Formulation}
@@ -95,7 +95,7 @@
   \end{tabular}
   \end{table}
  
- Remove the Artifical variables
+ Stage one: Remove the Artifical variables
 
   \begin{table}[H]
   \centering
@@ -160,6 +160,8 @@
   -1.18 & -2.21  & 1     & 1    & 1    & 0    & 0    & 0    & 0    & 1 & -310   \\ \hline
   \end{tabular}
   \end{table}
+
+  Stage two:
 
   \begin{table}[H]
   \centering
@@ -236,25 +238,10 @@
   0.67     & 1      & 0       & 0       & 0    & -6.7    & 0        & 0     & 0    & 6.7 & 266.67  & -40\\ \hline
   0.04     & 0      & 0       & 0       & -1   & 0.4     & 0        & 0     & 1   & -0.4   & 14      & 35\\ \hline
   -0.33    & 0      & 1       & 0       & 0    & -6.7    & -1       & 0     & 0    & 6.7  & 66.67   & -10\\ \hline
-  0        & 0      & 0       & 0       & 0    & 8000    & 0        & 0     & 0  & -8000 & -320000 & -40\\ \hline
-  -0.04    & 0      & 0       & 0       & 1    & -0.4    & 1        & 1     & 0    & 1.4 & -14     & 35 \\ \hline
+  0        & 0      & 0       & 0       & 0    & 8000    & 0        & 0     & 0  & -8000 & 319999.9418 & -40\\ \hline
   \end{tabular}
   \end{table}
 
-  \begin{table}[H]
-  \centering
-  \caption{Row operation}
-  \label{my-label}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-  \hline
-  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b   \\ \hline
-  1.33   & 0      & 0       & 1   & -16.67    & 0    & 0        & -1    & 16.67  & 0  & 460  \\ \hline
-  1.33   & 1      & 0       & 0   & -16.67    & 0    & 0        & 0     & 16.67  & 0  & 500  \\ \hline
-  0.1    & 0      & 0       & 0   & -2.5      & 1    & 0        & 0     & 2.5    & -1 & 35   \\ \hline
-  0.33   & 0      & 1       & 0   & -16.67    & 0    & -1       & 0     & 16.67  & 0  & 300  \\ \hline
-  -800   & 0      & 0       & 0   & 2000      & 0    & 0        & 0     & -20000 & 0 & -600000 \\ \hline
-  0      & 0      & 0       & 0   & 0         & 0    & 1        & 1     & 1      & 1 & 0     \\ \hline
-  \end{tabular}
-  \end{table}
+  As the result $\textbf{Min}\:\: f(x_1,x_2) \: = 320000$
 
 \end{document} 
