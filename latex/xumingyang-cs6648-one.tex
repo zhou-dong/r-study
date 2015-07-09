@@ -1,0 +1,260 @@
+\documentclass{article} 
+  \usepackage{amsmath} 
+  \usepackage{amssymb} 
+  \usepackage[table]{xcolor}
+  \usepackage{float}
+  \usepackage{graphicx}
+  \author{Minyang Xu}
+  \title{Assignment One for CS-6648}
+\begin{document} 
+  \maketitle
+  
+  \section{Q1}
+  Solve \: the \:following\:linear\:programming\:problem:
+  \begin{flalign*}
+    \begin{split}
+    \textbf{Min}\:\: f(x_1,x_2):\:\:x_1+x_2\\ \textbf{Subject to:}\: 3x_1-x_2\leq3\\ x_1+2x_2\leq5\\ x_1+x_2\leq4\\ x_1\ge0; x_2\: unrestricted\: in\:sign. \:\:\:\:\:\:\:\:\:\:\:\:\textbf{(8)}
+    \end{split}
+  \end{flalign*}
+
+  Answer:
+  
+  Let: $$x_2 = x'_{2} - x''_{2}$$
+  \begin{table}[H]
+  \centering
+  \caption{Formulation}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x'_2$ & $x''_2$  & $s_1$ & $s_2$ & $s_3$ & b & r \\ \hline
+  3    & -1    & {\color{green} 1} & 1    & 0    & 0    & 0 & 3 \\ \hline
+  1    & 2     & -2      & 0    & 1    & 0    & 0 & 5 \\ \hline
+  1    & 1     & -1      & 0    & 0    & 1    & 1 & 4 \\ \hline
+  1    & 1     & -1      & 0    & 0    & 0    & 0 & 0 \\ \hline
+  \end{tabular}
+  \end{table}
+
+
+  \begin{table}[H]
+  \centering
+  \caption{Find Smallest Positive Number}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x'_2$ & $x''_2$  & $s_1$ & $s_2$ & $s_3$ & b & r &      \\ \hline
+  3    & -1    & {\color{green} 1}    & 1    & 0    & 0    & 0 & 3 & 3    \\ \hline
+  1    & 2     & -2      & 0    & 1    & 0    & 0 & 5 & -2.5 \\ \hline
+  1    & 1     & -1      & 0    & 0    & 1    & 1 & 4 & -4   \\ \hline
+  1    & 1     & -1      & 0    & 0    & 0    & 0 & 0 &      \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Row Operation}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x'_2$ & $x''_2$  & $s_1$ & $s_2$ & $s_3$ & b & r \\ \hline
+  3    & -1    & {\color{green} 1} & 1    & 0    & 0    & 0 & 3  \\ \hline
+  7    & 0     & 0       & 2    & 1    & 0    & 0 & 11 \\ \hline
+  4    & 0     & 0       & 1    & 0    & 1    & 1 & 7  \\ \hline
+  4    & 0     & 0       & 1    & 0    & 0    & 0 & 3  \\ \hline
+  \end{tabular}
+  \end{table}
+
+  As the result we know:
+
+  $$ \textbf{Min}\:\: f(x_1,x_2) \: =\: 3 $$
+
+  \section{Q2}
+  The local community college is planning to grow the biotechnology offering through new federal and state grants. An ambitious program is being planned for recruiting at least 200 students from in and out if state. They are to recruit at least 40 out of state students. They will attempt to recruit at least 30 students who are in the top 20 \% of their graduating high school class. Current figures indicate that about 8 \% of the applicants from instate, and 6 \% of the applicants from out of state belong to this pool. They also plan to recruit at least 40 students who have AP courses in biology.  The data suggests that 10 \% and 15 \% of in state and out of state applicants respectively, belong to this pool. They anticipate that the additional cost per student is $ 800 for each in state student and $1200 for each out of state student.  Find their actual enrollment needed to minimize cost and their actual cost.
+
+  Hint: Optimal Value= 324,000
+
+  As the question we can get:
+
+ \begin{flalign}
+    \textbf{Max}\:\: f(x_1,x_2): 800x_1 + 100x_2 \\
+    x_1 + x_2 \geq 1200 \\
+    x_2 \geq 40 \\
+    0.08x_1 + 0.06x_2 \geq 30 \\
+    0.1x_1 + 0.15x_2 \geq 40
+  \end{flalign}
+
+  \begin{table}[H]
+  \centering
+  \caption{Formulation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200 \\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40  \\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30  \\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40  \\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0   \\ \hline
+  0    & 0    & 0        & 0    & 0    & 0    & 1    & 1    & 1    & 1 & 0   \\ \hline
+  \end{tabular}
+  \end{table}
+ 
+ Remove the Artifical variables
+
+  \begin{table}[H]
+  \centering
+  \caption{Remove First Artifical Varaible}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200 \\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40  \\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30  \\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40  \\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0   \\ \hline
+  -1   & -1   & 1        & 0    & 0    & 0    & 0    & 1    & 1    & 1 & -200    \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Remove Second Artifical Varaible}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200 \\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40  \\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30  \\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40  \\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0   \\ \hline
+  -1   & -2   & 1        & 1    & 0    & 0    & 0    & 0    & 1    & 1 & -240    \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Remove Third Artifical Varaible}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200 \\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40  \\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30  \\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40  \\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0   \\ \hline
+  -1.08 & -2.06  & 1     & 1    & 1    & 0    & 0    & 0    & 0    & 1 & -270   \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Remove Forth Artifical Varaible}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200 \\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40  \\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30  \\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40  \\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0   \\ \hline
+  -1.18 & -2.21  & 1     & 1    & 1    & 0    & 0    & 0    & 0    & 1 & -310   \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Find Smallest positive result}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b & r  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200  & 200\\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40   & 40\\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30   & 500\\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40   & 667\\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0    & 0\\ \hline
+  -1.18 & -2.21  & 1     & 1    & 1    & -1   & 0    & 0    & 0    & 0    & 1 & 932   \\ \hline
+  \end{tabular}
+  \end{table}
+
+    \begin{table}[H]
+  \centering
+  \caption{Row operation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b & r  \\ \hline
+  1    & 1    & -1       & 0    & 0    & 0    & 1    & 0    & 0    & 0 & 200  & 200\\ \hline
+  0    & 1    & 0        & -1   & 0    & 0    & 0    & 1    & 0    & 0 & 40   & 40\\ \hline
+  0.08 & 0.06 & 0        & 0    & -1   & 0    & 0    & 0    & 1    & 0 & 30   & 500\\ \hline
+  0.1  & 0.15 & 0        & 0    & 0    & -1   & 0    & 0    & 0    & 1 & 40   & 667\\ \hline
+  800  & 1200 & 0        & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0    & 0\\ \hline
+  -1.18 & -2.21  & 1     & 1    & 1    & -1   & 0    & 0    & 0    & 0    & 1 & 932   \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Row operation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b & r  \\ \hline
+  1    & 0      & -1       & 1       & 0    & 0    & 1    & -1    & 0    & 0 & 160  & 160\\ \hline
+  0    & 1      & 0        & -1      & 0    & 0    & 0    & 1    & 0    & 0 & 40   & -40\\ \hline
+  0.08 & 0      & 0        & 0.06    & -1   & 0    & 0    & -0.06    & 1    & 0 & 27.6 & 460\\ \hline
+  0.1  & 0      & 0        & 0.15    & 0    & -1   & 0    & -0.15    & 0    & 1 & 34   & 667\\ \hline
+  800  & 0      & 0        & 1200    & 0    & 0    & 0    & -1200     & 0    & 0 & -48000 & -40\\ \hline
+  -1.18 &0      & 1        & -1.21   & 1    & -1   & 0    & 2.21   & 0    & 0 & -221.6 & 959   \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Row operation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b & r  \\ \hline
+  1     & 0      & -1       & 1       & 0    & 0    & 1        & -1    & 0    & 0 & 160       & 160\\ \hline
+  1     & 1      & -1       & 0       & 0    & 0    & 1        & 0     & 0    & 0 & 200       & -200\\ \hline
+  0.02  & 0      & 0.06     & 0       & -1   & 0    & -0.06    & 0     & 1    & 0 & 18        & 300\\ \hline
+  -0.05 & 0      & 0.15     & 0       & 0    & -1   & -0.15    & 0     & 0    & 1 & 10        & 667\\ \hline
+  -400  & 0      & 1200     & 0       & 0    & 0    & -1200    & 0     & 0    & 0 & -240000   & -200\\ \hline
+  0.03  & 0      & -0.21    & 0       & 1    & -1   & 1.21     & 1     & 0    & 0 & -28.6     & 333   \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Row operation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b & r  \\ \hline
+  0.67     & 0      & 0       & 1       & 0    & -6.7    & 0        & -1    & 0    & 6.7 & 222.67  & -34\\ \hline
+  0.67     & 1      & 0       & 0       & 0    & -6.7    & 0        & 0     & 0    & 6.7 & 266.67  & -40\\ \hline
+  0.04     & 0      & 0       & 0       & -1   & 0.4     & 0        & 0     & 1   & -0.4   & 14      & 35\\ \hline
+  -0.33    & 0      & 1       & 0       & 0    & -6.7    & -1       & 0     & 0    & 6.7  & 66.67   & -10\\ \hline
+  0        & 0      & 0       & 0       & 0    & 8000    & 0        & 0     & 0  & -8000 & -320000 & -40\\ \hline
+  -0.04    & 0      & 0       & 0       & 1    & -0.4    & 1        & 1     & 0    & 1.4 & -14     & 35 \\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+  \centering
+  \caption{Row operation}
+  \label{my-label}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x_1$ & $x_2$ & $s_1$  & $s_2$ & $s_3$ & $s_4$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & b   \\ \hline
+  1.33   & 0      & 0       & 1   & -16.67    & 0    & 0        & -1    & 16.67  & 0  & 460  \\ \hline
+  1.33   & 1      & 0       & 0   & -16.67    & 0    & 0        & 0     & 16.67  & 0  & 500  \\ \hline
+  0.1    & 0      & 0       & 0   & -2.5      & 1    & 0        & 0     & 2.5    & -1 & 35   \\ \hline
+  0.33   & 0      & 1       & 0   & -16.67    & 0    & -1       & 0     & 16.67  & 0  & 300  \\ \hline
+  -800   & 0      & 0       & 0   & 2000      & 0    & 0        & 0     & -20000 & 0 & -600000 \\ \hline
+  0      & 0      & 0       & 0   & 0         & 0    & 1        & 1     & 1      & 1 & 0     \\ \hline
+  \end{tabular}
+  \end{table}
+
+\end{document} 
