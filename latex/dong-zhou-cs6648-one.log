@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.6.24)  9 JUL 2015 10:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.6.24)  12 JUL 2015 12:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,29 +252,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2015basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 ]
-[3] [4] [5] (./dong-zhou-cs6648-one.aux) ) 
+[3] [4] [5] [6] (./dong-zhou-cs6648-one.aux) ) 
 Here is how much of TeX's memory you used:
  3006 strings out of 494501
  39392 string characters out of 6167030
- 125743 words of memory out of 5000000
+ 124743 words of memory out of 5000000
  6241 multiletter control sequences out of 15000+600000
  12122 words of font info for 47 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  41i,16n,35p,948b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015basic/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015basic
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015b
-asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
-15basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
-/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
-ive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on dong-zhou-cs6648-one.pdf (5 pages, 111354 bytes).
+</usr/local/texlive/2015basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015b
+asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2
+015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
+e/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/tex
+live/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
+texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on dong-zhou-cs6648-one.pdf (6 pages, 112681 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
