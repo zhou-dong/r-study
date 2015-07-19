@@ -1,9 +1,32 @@
 \documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{float}
 	\author{Dong Zhou}
 	\title{Assignment Two for CS-6648}
 \begin{document}
 	\maketitle
 
-	\section{STEP ONE}
+	\begin{flalign}
+		\textbf{Maximize} \: 24 x_1 + 2 x_2 + 20 x_3 + 4 x_4 \\ 
+		\textbf{Subject to} \: 8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\ 
+		x_i \in \{0,1 \} \: \textbf{for} \: i = 1 \: \textbf{to} \: 4. 
+	\end{flalign}
+
+	\begin{flalign*}
+		\textbf{From above we can get:}\\
+       	24 / 8 = 3 \\
+       	2 / 1 = 2 \\
+       	20 / 5 = 4 \\
+       	4 / 4 = 1
+    \end{flalign*}
+
+    \begin{table}[H]
+    \centering
+   	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		item & 1 & 2 & 3 & 4 \\ \hline
+		value/lb. & \$3 & \$2 & \$4 & \$1 \\ \hline
+	\end{tabular}
+	\end{table}
 
 \end{document}
