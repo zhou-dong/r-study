@@ -1,0 +1,365 @@
+\documentclass{article} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{0pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	 Assignment 1
+}
+
+\author{Yunfei Yan 1424307} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section*{Question:}
+\begin{equation*}
+\textbf{Maximize}: 24x_1+2x_2+20x_3+4x_4
+\end{equation*}
+\begin{equation*}
+\textbf{Subject to}: 8x_1+x_2+5x_3+4x_4\leq9
+\end{equation*}
+\begin{equation*}
+0\leq x_j\leq1 \ \ for \ \ j=1,2,3,4
+\end{equation*}
+
+\subsection*{Answer:}
+\ \
+Node \ \ 1:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1  & x2 & x3  & x4 & s1 & s2 & s3 & s4 & s5 & b & r     \\ \hline
+8   & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 0  & 9 & 1.125 \\ \hline
+1   & 0  & 0   & 0  & 0  & 1  & 0  & 0  & 0  & 1 & 1     \\ \hline
+0   & 1  & 0   & 0  & 0  & 0  & 1  & 0  & 0  & 1 & 0     \\ \hline
+0   & 0  & 1   & 0  & 0  & 0  & 0  & 1  & 0  & 1 & 0     \\ \hline
+0   & 0  & 0   & 1  & 0  & 0  & 0  & 0  & 0  & 1 & 0     \\ \hline
+-24 & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0  & 0 &       \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1 & x2     & x3     & x4   & s1     & s2 & s3 & s4 & s5 & b      & r   \\ \hline
+1  & 0.125  & 0.625  & 0.5  & 0.125  & 0  & 0  & 0  & 0  & 1.125  & 1.8 \\ \hline
+0  & -0.125 & -0.625 & -0.5 & -0.125 & 1  & 0  & 0  & 0  & -0.125 & 0.2 \\ \hline
+0  & 1      & 0      & 0    & 0      & 0  & 1  & 0  & 0  & 1      & 0   \\ \hline
+0  & 0      & 1      & 0    & 0      & 0  & 0  & 1  & 0  & 1      & 1   \\ \hline
+0  & 0      & 0      & 1    & 0      & 0  & 0  & 0  & 1  & 1      & 0   \\ \hline
+0  & 1      & -5     & 8    & 3      & 0  & 0  & 0  & 0  & 27     &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1 & x2   & x3 & x4   & s1   & s2   & s3 & s4 & s5 & b   & r      \\ \hline
+1  & 0    & 0  & 0    & 0    & 1    & 0  & 0  & 0  & 1   & 1      \\ \hline
+0  & 0.2  & 1  & 0.8  & 0.2  & -1.6 & 0  & 0  & 0  & 0.2 & -0.125 \\ \hline
+0  & 1    & 0  & 0    & 0    & 0    & 0  & 0  & 0  & 1   &        \\ \hline
+0  & -0.2 & 0  & -0.8 & -0.2 & 1.6  & 0  & 1  & 0  & 0.8 & 0.5    \\ \hline
+0  & 0    & 0  & 1    & 0    & 0    & 0  & 0  & 0  & 1   &        \\ \hline
+0  & 2    & 0  & 12   & 4    & -8   & 0  & 0  & 0  & 28  &        \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1 & x2     & x3 & x4   & s1     & s2 & s3 & s4     & s5 & b   \\ \hline
+1  & 0.125  & 0  & 0.5  & 0.125  & 0  & 0  & -0.625 & 0  & 0.5 \\ \hline
+0  & 0      & 1  & 0    & 0      & 0  & 0  & 1      & 0  & 1   \\ \hline
+0  & 1      & 0  & 0    & 0      & 0  & 0  & 0      & 0  & 1   \\ \hline
+0  & -0.125 & 0  & -0.5 & -0.125 & 1  & 0  & 0.625  & 0  & 0.5 \\ \hline
+0  & 0      & 0  & 1    & 0      & 0  & 0  & 0      & 0  & 1   \\ \hline
+0  & 1      & 0  & 8    & 3      & 0  & 0  & 5      & 0  & 32  \\ \hline
+\end{tabular}
+\end{center}
+$x_1=0.5,x_3=1,LP(1)=32$
+\\
+\\
+Node \ \ 2:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2 & x3  & x4 & s1 & s2 & s3 & s4 & b & r   \\ \hline
+     & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 9 & 1.8 \\ \hline
+     & 1  & 0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
+     & 0  & 1   & 0  & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+     & 0  & 0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
+     & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0 &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2 & x3 & x4 & s1 & s2 & s3 & s4 & b  & r \\ \hline
+     & 1  & 0  & 4  & 1  & 0  & -5 & 0  & 4  & 1 \\ \hline
+     & 1  & 0  & 0  & 0  & 1  & 0  & 0  & 1  & 0 \\ \hline
+     & 0  & 1  & 0  & 0  & 0  & 1  & 0  & 1  & 0 \\ \hline
+     & 0  & 0  & 1  & 0  & 0  & 0  & 1  & 1  & 1 \\ \hline
+     & -2 & 0  & -4 & 0  & 0  & 20 & 0  & 20 &   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2    & x3 & x4 & s1    & s2 & s3    & s4 & b  & r \\ \hline
+     & 0.25  & 0  & 1  & 0.25  & 0  & -1.25 & 0  & 1  & 4 \\ \hline
+     & 1     & 0  & 0  & 0     & 1  & 0     & 0  & 1  & 1 \\ \hline
+     & 0     & 1  & 0  & 0     & 0  & 1     & 0  & 1  & 0 \\ \hline
+     & -0.25 & 0  & 0  & -0.25 & 0  & 1.25  & 1  & 0  & 0 \\ \hline
+     & -1    & 0  & 0  & 1     & 0  & 15    & 0  & 24 &   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2 & x3 & x4 & s1    & s2    & s3    & s4 & b    & r \\ \hline
+     & 0  & 0  & 1  & 0.25  & -0.25 & -1.25 & 0  & 0.75 & 4 \\ \hline
+     & 1  & 0  & 0  & 0     & 1     & 0     & 0  & 1    & 1 \\ \hline
+     & 0  & 1  & 0  & 0     & 0     & 1     & 0  & 1    & 0 \\ \hline
+     & 0  & 0  & 0  & -0.25 & 0.25  & 1.25  & 1  & 0.25 & 0 \\ \hline
+     & 0  & 0  & 0  & 1     & 1     & 15    & 0  & 25   &   \\ \hline
+\end{tabular}
+\end{center}
+$x_2=1,x_3=1,x_4=0.75,LP(2)=25$
+\\
+\\
+Node \ \ 3:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2 & x3  & x4 & s1 & s2 & s3 & s4 & b & r   \\ \hline
+     & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 1 & 0.2 \\ \hline
+     & 1  & 0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
+     & 0  & 1   & 0  & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+     & 0  & 0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
+     & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0 &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2   & x3 & x4   & s1   & s2 & s3 & s4 & b   & r   \\ \hline
+     & 0.2  & 1  & 0.8  & 0.2  & 0  & 0  & 0  & 0.2 & 0.2 \\ \hline
+     & 1    & 0  & 0    & 0    & 1  & 0  & 0  & 1   & 0   \\ \hline
+     & -0.2 & 0  & -0.8 & -0.2 & 0  & 1  & 0  & 0.8 & 1   \\ \hline
+     & 0    & 0  & 1    & 0    & 0  & 0  & 1  & 1   & 0   \\ \hline
+     & 2    & 0  & 12   & 4    & 0  & 0  & 0  & 4   &     \\ \hline
+\end{tabular}
+\end{center}
+$x_1=1,x_3=0.2,LP(3)=4+24=28$
+\\
+\\
+Node \ \ 4:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=0 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
+     &      & 5   & 4  & 1  & 0  & 0  & 9 & 1.8 \\ \hline
+     &      & 1   & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=0 & x3 & x4 & s1 & s2 & s3 & b  & r \\ \hline
+     &      & 0  & 4  & 1  & -5 & 0  & 4  & 1 \\ \hline
+     &      & 1  & 0  & 0  & 1  & 0  & 1  & 0 \\ \hline
+     &      & 0  & 1  & 0  & 0  & 1  & 1  & 1 \\ \hline
+     &      & 0  & -4 & 0  & 20 & 0  & 20 &   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=0 & x3 & x4 & s1 & s2 & s3 & b  \\ \hline
+     &      & 0  & 0  & 1  & -5 & -4 & 0  \\ \hline
+     &      & 1  & 0  & 0  & 1  & 0  & 1  \\ \hline
+     &      & 0  & 1  & 0  & 0  & 1  & 1  \\ \hline
+     &      & 0  & 0  & 0  & 20 & 4  & 24 \\ \hline
+\end{tabular}
+\end{center}
+$x_3=1,x_4=1,LP(4)=24$
+\\
+\\
+Node \ \ 5:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
+     &      & 5   & 4  & 1  & 0  & 0  & 8 & 1.6 \\ \hline
+     &      & 1   & 0  & 0  & 0  & 0  & 1 & 1   \\ \hline
+     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3 & x4 & s1 & s2 & s3 & b  & r    \\ \hline
+     &      & 0  & 4  & 1  & 0  & 0  & 3  & 0.75 \\ \hline
+     &      & 1  & 0  & 0  & 1  & 0  & 1  & 0    \\ \hline
+     &      & 0  & 1  & 0  & 0  & 1  & 1  & 1    \\ \hline
+     &      & 0  & -4 & 0  & 0  & 0  & 20 &      \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3 & x4 & s1    & s2 & s3 & b    \\ \hline
+     &      & 0  & 1  & 0.25  & 0  & 0  & 0.75 \\ \hline
+     &      & 1  & 0  & 0     & 1  & 0  & 1    \\ \hline
+     &      & 0  & 0  & -0.25 & 0  & 1  & 0.25 \\ \hline
+     &      & 0  & 0  & 1     & 0  & 0  & 23   \\ \hline
+\end{tabular}
+\end{center}
+$x_2=1,x_3=1,x_4=0.75,LP(5)=23+2=25$
+\\
+\\
+Node \ \ 6:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2=0 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
+     &      & 5   & 4  & 1  & 0  & 0  & 1 & 0.2 \\ \hline
+     &      & 1   & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2=0 & x3 & x4   & s1   & s2 & s3 & b   \\ \hline
+     &      & 1  & 0.8  & 0.2  & 0  & 0  & 0.2 \\ \hline
+     &      & 0  & -0.8 & -0.2 & 1  & 0  & 0.8 \\ \hline
+     &      & 0  & 1    & 0    & 0  & 1  & 1   \\ \hline
+     &      & 0  & 12   & 4    & 0  & 0  & 4   \\ \hline
+\end{tabular}
+\end{center}
+$x_1=1,x_3=0.2,LP(6)=4+24=28$
+\\
+\\
+Node \ \ 7: \  \ $x_1=1,x_2=1,LP(7)=26$
+\\
+\\
+Node \ \ 8:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3=0 & x4 & s1 & s2 & b & r \\ \hline
+     &      &      & 4  & 1  & 0  & 8 & 2 \\ \hline
+     &      &      & 1  & 0  & 1  & 1 & 1 \\ \hline
+     &      &      & -4 & 0  & 0  & 0 &   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3=0 & x4 & s1 & s2 & b \\ \hline
+     &      &      & 0  & 1  & -4 & 4 \\ \hline
+     &      &      & 1  & 0  & 1  & 1 \\ \hline
+     &      &      & 0  & 0  & 4  & 4 \\ \hline
+\end{tabular}
+\end{center}
+$x_2=1,x_4=1,LP(8)=4+2=6$
+\\
+\\
+Node \ \ 9:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3=1 & x4 & s1 & s2 & b & r    \\ \hline
+     &      &      & 4  & 1  & 0  & 3 & 0.75 \\ \hline
+     &      &      & 1  & 0  & 1  & 1 & 1    \\ \hline
+     &      &      & -4 & 0  & 0  & 0 &      \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+x1=0 & x2=1 & x3=1 & x4 & s1    & s2 & b    \\ \hline
+     &      &      & 1  & 0.25  & 0  & 0.75 \\ \hline
+     &      &      & 0  & -0.25 & 1  & 0.25 \\ \hline
+     &      &      & 0  & 1     & 0  & 3    \\ \hline
+\end{tabular}
+\end{center}
+$x_2=1,x_3=1,x_4=0.75,LP(9)=3+2+20=25$
+\\
+\\
+Node \ \ 10:
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2=0 & x3=0 & x4 & s1 & s2 & b & r    \\ \hline
+     &      &      & 4  & 1  & 0  & 1 & 0.25 \\ \hline
+     &      &      & 1  & 0  & 1  & 1 & 1    \\ \hline
+     &      &      & -4 & 0  & 0  & 0 &      \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+x1=1 & x2=0 & x3=0 & x4 & s1    & s2 & b    \\ \hline
+     &      &      & 1  & 0.25  & 0  & 0.25 \\ \hline
+     &      &      & 0  & -0.25 & 1  & 0.75 \\ \hline
+     &      &      & 0  & 1     & 0  & 1    \\ \hline
+\end{tabular}
+\end{center}
+$x_1=1,x_4=0.25,LP(10)=1+24=25$
+\\
+\\
+Node \ \ 11: \  \ There is no feasible solution when $x_1=1,x_2=0,x_3=1$
+\\
+\\
+\\
+\begin{center}
+The solution for IP is: $x_1=1,x_2=1,x_3=0,x_4=0$
+\\
+So Max $24x_1+2x_2+20x_3+4x_4=26$
+\\
+\ \
+\\
+\ \
+\\
+Thanks
+\end{center}
+
+
+\end{document}
