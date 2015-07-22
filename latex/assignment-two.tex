@@ -1,365 +1,402 @@
-\documentclass{article} % A4 paper and 11pt font size
-
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\usepackage{geometry}
-\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
-
-\usepackage{amsmath,amsfonts,amsthm} % Math packages
-
-%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
-
-\usepackage{fancyhdr} % Custom headers and footers
-\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
-\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
-\fancyfoot[L]{} % Empty left footer
-\fancyfoot[C]{} % Empty center footer
-\fancyfoot[R]{\thepage} % Page numbering for right footer
-\renewcommand{\headrulewidth}{0pt} % Remove header underlines
-\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
-\setlength{\headheight}{0pt} % Customize the height of the header
-
-\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-
-\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
-
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
-
-\title{	 Assignment 1
-}
-
-\author{Yunfei Yan 1424307} % Your name
-
-\date{\normalsize\today} % Today's date or a custom date
+\documentclass{article} 
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{graphicx}
+     \author{Dong Zhou}
+     \title{Assignment Two for CS-6648}
 
 \begin{document}
+     \maketitle
 
-\maketitle % Print the title
+\section*{Problem to work with:}
+     \begin{flalign*}
+          \textbf{Maximize:} \: 24 x_1 + 2 x_2 + 20 x_3 + 4 x_4 \\ 
+          \textbf{Subject to:} \: 8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\ 
+          x_i \in \{0,1 \} \: \textbf{for} \: i = 1 \: \textbf{to} \: 4
+     \end{flalign*}
 
-%----------------------------------------------------------------------------------------
-%	PROBLEM 1
-%----------------------------------------------------------------------------------------
+     \subsection*{Rewrite formulars 1:}
+          We translate [ $x_i \in \{0,1 \} \: \textbf{for} \: i = 1 \: \textbf{to} \: 4$ ] to constraints:
+          \begin{flalign*}
+               \textbf{Maximize:} \: 24 x_1 + 2 x_2 + 20 x_3 + 4 x_4 \\ 
+               \textbf{Subject to:} \: 8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+               x_1 \le 1\\
+               x_2 \le 1\\
+               x_3 \le 1\\
+               x_4 \le 1\\
+               x_i \ge 0 \: \textbf{for} \: i = 1 \: \textbf{to} \: 4
+          \end{flalign*}
 
-\section*{Question:}
-\begin{equation*}
-\textbf{Maximize}: 24x_1+2x_2+20x_3+4x_4
-\end{equation*}
-\begin{equation*}
-\textbf{Subject to}: 8x_1+x_2+5x_3+4x_4\leq9
-\end{equation*}
-\begin{equation*}
-0\leq x_j\leq1 \ \ for \ \ j=1,2,3,4
-\end{equation*}
+     \subsection*{Rewrite formulars 2:}
+          \begin{flalign*}
+               \textbf{Minimize:} \: -24 x_1 - 2 x_2 - 20 x_3 - 4 x_4 \\ 
+               \textbf{Subject to:} \: 8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 + s_1 = 9 \\
+               x_1 + s_2 = 1\\
+               x_2 + s_3 = 1\\
+               x_3 + s_4 = 1\\
+               x_4 + s_5 = 1\\
+               x_i \ge 0 \: \textbf{for} \: i = 1 \: \textbf{to} \: 4 \\
+               s_j \ge 0 \: \textbf{for} \: j = 1 \: \textbf{to} \: 5
+          \end{flalign*}
 
-\subsection*{Answer:}
-\ \
-Node \ \ 1:
+\subsection*{Steps of resolve the problem:}
+
+\subsubsection*{Step 1}
+
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x1  & x2 & x3  & x4 & s1 & s2 & s3 & s4 & s5 & b & r     \\ \hline
-8   & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 0  & 9 & 1.125 \\ \hline
-1   & 0  & 0   & 0  & 0  & 1  & 0  & 0  & 0  & 1 & 1     \\ \hline
-0   & 1  & 0   & 0  & 0  & 0  & 1  & 0  & 0  & 1 & 0     \\ \hline
-0   & 0  & 1   & 0  & 0  & 0  & 0  & 1  & 0  & 1 & 0     \\ \hline
-0   & 0  & 0   & 1  & 0  & 0  & 0  & 0  & 0  & 1 & 0     \\ \hline
--24 & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0  & 0 &       \\ \hline
+$x_1$  & $x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & b & r     \\ \hline
+\cellcolor{pink!25}8   & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 0  & 9 & 1.125 \\ \hline
+\cellcolor{pink!25}1   & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 0   & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 1  & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 0  & \cellcolor{yellow!25} 1 & 1\cellcolor{yellow!25}     \\ \hline
+\cellcolor{pink!25}0   & 1  & 0   & 0  & 0  & 0  & 1  & 0  & 0  & 1 & 0     \\ \hline
+\cellcolor{pink!25}0   & 0  & 1   & 0  & 0  & 0  & 0  & 1  & 0  & 1 & 0     \\ \hline
+\cellcolor{pink!25}0   & 0  & 0   & 1  & 0  & 0  & 0  & 0  & 1  & 1 & 0     \\ \hline
+\cellcolor{pink!25}-24 & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0  & 0 & 0     \\ \hline
 \end{tabular}
 \end{center}
+
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x1 & x2     & x3     & x4   & s1     & s2 & s3 & s4 & s5 & b      & r   \\ \hline
-1  & 0.125  & 0.625  & 0.5  & 0.125  & 0  & 0  & 0  & 0  & 1.125  & 1.8 \\ \hline
-0  & -0.125 & -0.625 & -0.5 & -0.125 & 1  & 0  & 0  & 0  & -0.125 & 0.2 \\ \hline
-0  & 1      & 0      & 0    & 0      & 0  & 1  & 0  & 0  & 1      & 0   \\ \hline
-0  & 0      & 1      & 0    & 0      & 0  & 0  & 1  & 0  & 1      & 1   \\ \hline
-0  & 0      & 0      & 1    & 0      & 0  & 0  & 0  & 1  & 1      & 0   \\ \hline
-0  & 1      & -5     & 8    & 3      & 0  & 0  & 0  & 0  & 27     &     \\ \hline
+$x_1$  & $x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & b & r     \\ \hline
+0\cellcolor{yellow!25}   & \cellcolor{yellow!25}1     & \cellcolor{pink!25}5      & \cellcolor{yellow!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}-8  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}0.2 \\ \hline
+1   & 0     & \cellcolor{pink!25}0      & 0    & 0      & 1  & 0  & 0  & 0  & 1      & 0     \\ \hline
+0  & 1      & \cellcolor{pink!25}0      & 0    & 0      & 0  & 1  & 0  & 0  & 1      & 0   \\ \hline
+0  & 0      & \cellcolor{pink!25}1      & 0    & 0      & 0  & 0  & 1  & 0  & 1      & 1   \\ \hline
+0  & 0      & \cellcolor{pink!25}0      & 1    & 0      & 0  & 0  & 0  & 1  & 1      & 0   \\ \hline
+0 & -2      & \cellcolor{pink!25}-20 & -4 & 0  & 24  & 0  & 0  & 0  & 24 & -1.2     \\ \hline
 \end{tabular}
+
 \end{center}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x1 & x2   & x3 & x4   & s1   & s2   & s3 & s4 & s5 & b   & r      \\ \hline
-1  & 0    & 0  & 0    & 0    & 1    & 0  & 0  & 0  & 1   & 1      \\ \hline
-0  & 0.2  & 1  & 0.8  & 0.2  & -1.6 & 0  & 0  & 0  & 0.2 & -0.125 \\ \hline
-0  & 1    & 0  & 0    & 0    & 0    & 0  & 0  & 0  & 1   &        \\ \hline
-0  & -0.2 & 0  & -0.8 & -0.2 & 1.6  & 0  & 1  & 0  & 0.8 & 0.5    \\ \hline
-0  & 0    & 0  & 1    & 0    & 0    & 0  & 0  & 0  & 1   &        \\ \hline
-0  & 2    & 0  & 12   & 4    & -8   & 0  & 0  & 0  & 28  &        \\ \hline
+$x_1$  & $x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & b & r     \\ \hline
+0  & 0.2     & 1      & 0.8  & 0.2  & \cellcolor{pink!25}-1.6  & 0  & 0  & 0  & 0.2 & -0.125 \\ \hline
+1  & 0      & 0      & 0    & 0      &\cellcolor{pink!25} 1  & 0  & 0  & 0  & 1      & 1   \\ \hline
+0  & 1      & 0      & 0    & 0      &\cellcolor{pink!25} 0  & 1  & 0  & 0  & 1      & 0   \\ \hline
+0\cellcolor{yellow!25}  & \cellcolor{yellow!25}-0.2   & \cellcolor{yellow!25}0      & \cellcolor{yellow!25}-0.8 & \cellcolor{yellow!25}-0.2    &\cellcolor{pink!25}1.6  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0.8      & \cellcolor{yellow!25}0.5   \\ \hline
+0  & 0      & 0      & 1    & 0      &\cellcolor{pink!25} 0  & 0  & 0  & 1  & 1      & 0   \\ \hline
+0  & 2      & 0      & 12   & 4      &\cellcolor{pink!25}-8  & 0  & 0  & 0  & 28 & -3.5    \\ \hline
 \end{tabular}
 \end{center}
+
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x1 & x2     & x3 & x4   & s1     & s2 & s3 & s4     & s5 & b   \\ \hline
-1  & 0.125  & 0  & 0.5  & 0.125  & 0  & 0  & -0.625 & 0  & 0.5 \\ \hline
+$x_1$  & $x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & $s_5$ & b     \\ \hline
 0  & 0      & 1  & 0    & 0      & 0  & 0  & 1      & 0  & 1   \\ \hline
+1  & 0.125  & 0  & 0.5  & 0.125  & 0  & 0  & -0.625 & 0  & 0.5   \\ \hline
 0  & 1      & 0  & 0    & 0      & 0  & 0  & 0      & 0  & 1   \\ \hline
 0  & -0.125 & 0  & -0.5 & -0.125 & 1  & 0  & 0.625  & 0  & 0.5 \\ \hline
-0  & 0      & 0  & 1    & 0      & 0  & 0  & 0      & 0  & 1   \\ \hline
+0  & 0      & 0  & 1    & 0      & 0  & 0  & 0      & 1  & 1   \\ \hline
 0  & 1      & 0  & 8    & 3      & 0  & 0  & 5      & 0  & 32  \\ \hline
 \end{tabular}
 \end{center}
-$x_1=0.5,x_3=1,LP(1)=32$
+
+So we get: $x_1=0.5,\: x_3=1, \: LP(1)=32$
 \\
-\\
-Node \ \ 2:
+\subsubsection*{Step 2: $x_1=0$}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x1=0 & x2 & x3  & x4 & s1 & s2 & s3 & s4 & b & r   \\ \hline
-     & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 9 & 1.8 \\ \hline
-     & 1  & 0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
-     & 0  & 1   & 0  & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
-     & 0  & 0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
-     & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0 &     \\ \hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  & r \\ \hline
+1  & \cellcolor{pink!25}5   & 4  & 1  & 0  & 0  & 0  & 9 & 1.8 \\ \hline
+1  & \cellcolor{pink!25}0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
+0\cellcolor{yellow!25}  & \cellcolor{pink!25}1   & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}1   \\ \hline
+0  & \cellcolor{pink!25}0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
+-2 & \cellcolor{pink!25}-20 & -4 & 0  & 0  & 0  & 0  & 0 & 0   \\ \hline
 \end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2 & x3 & x4 & s1 & s2 & s3 & s4 & b  & r \\ \hline
-     & 1  & 0  & 4  & 1  & 0  & -5 & 0  & 4  & 1 \\ \hline
-     & 1  & 0  & 0  & 0  & 1  & 0  & 0  & 1  & 0 \\ \hline
-     & 0  & 1  & 0  & 0  & 0  & 1  & 0  & 1  & 0 \\ \hline
-     & 0  & 0  & 1  & 0  & 0  & 0  & 1  & 1  & 1 \\ \hline
-     & -2 & 0  & -4 & 0  & 0  & 20 & 0  & 20 &   \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2    & x3 & x4 & s1    & s2 & s3    & s4 & b  & r \\ \hline
-     & 0.25  & 0  & 1  & 0.25  & 0  & -1.25 & 0  & 1  & 4 \\ \hline
-     & 1     & 0  & 0  & 0     & 1  & 0     & 0  & 1  & 1 \\ \hline
-     & 0     & 1  & 0  & 0     & 0  & 1     & 0  & 1  & 0 \\ \hline
-     & -0.25 & 0  & 0  & -0.25 & 0  & 1.25  & 1  & 0  & 0 \\ \hline
-     & -1    & 0  & 0  & 1     & 0  & 15    & 0  & 24 &   \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2 & x3 & x4 & s1    & s2    & s3    & s4 & b    & r \\ \hline
-     & 0  & 0  & 1  & 0.25  & -0.25 & -1.25 & 0  & 0.75 & 4 \\ \hline
-     & 1  & 0  & 0  & 0     & 1     & 0     & 0  & 1    & 1 \\ \hline
-     & 0  & 1  & 0  & 0     & 0     & 1     & 0  & 1    & 0 \\ \hline
-     & 0  & 0  & 0  & -0.25 & 0.25  & 1.25  & 1  & 0.25 & 0 \\ \hline
-     & 0  & 0  & 0  & 1     & 1     & 15    & 0  & 25   &   \\ \hline
-\end{tabular}
-\end{center}
-$x_2=1,x_3=1,x_4=0.75,LP(2)=25$
-\\
-\\
-Node \ \ 3:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2 & x3  & x4 & s1 & s2 & s3 & s4 & b & r   \\ \hline
-     & 1  & 5   & 4  & 1  & 0  & 0  & 0  & 1 & 0.2 \\ \hline
-     & 1  & 0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
-     & 0  & 1   & 0  & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
-     & 0  & 0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
-     & -2 & -20 & -4 & 0  & 0  & 0  & 0  & 0 &     \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2   & x3 & x4   & s1   & s2 & s3 & s4 & b   & r   \\ \hline
-     & 0.2  & 1  & 0.8  & 0.2  & 0  & 0  & 0  & 0.2 & 0.2 \\ \hline
-     & 1    & 0  & 0    & 0    & 1  & 0  & 0  & 1   & 0   \\ \hline
-     & -0.2 & 0  & -0.8 & -0.2 & 0  & 1  & 0  & 0.8 & 1   \\ \hline
-     & 0    & 0  & 1    & 0    & 0  & 0  & 1  & 1   & 0   \\ \hline
-     & 2    & 0  & 12   & 4    & 0  & 0  & 0  & 4   &     \\ \hline
-\end{tabular}
-\end{center}
-$x_1=1,x_3=0.2,LP(3)=4+24=28$
-\\
-\\
-Node \ \ 4:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=0 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
-     &      & 5   & 4  & 1  & 0  & 0  & 9 & 1.8 \\ \hline
-     &      & 1   & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
-     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
-     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=0 & x3 & x4 & s1 & s2 & s3 & b  & r \\ \hline
-     &      & 0  & 4  & 1  & -5 & 0  & 4  & 1 \\ \hline
-     &      & 1  & 0  & 0  & 1  & 0  & 1  & 0 \\ \hline
-     &      & 0  & 1  & 0  & 0  & 1  & 1  & 1 \\ \hline
-     &      & 0  & -4 & 0  & 20 & 0  & 20 &   \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=0 & x3 & x4 & s1 & s2 & s3 & b  \\ \hline
-     &      & 0  & 0  & 1  & -5 & -4 & 0  \\ \hline
-     &      & 1  & 0  & 0  & 1  & 0  & 1  \\ \hline
-     &      & 0  & 1  & 0  & 0  & 1  & 1  \\ \hline
-     &      & 0  & 0  & 0  & 20 & 4  & 24 \\ \hline
-\end{tabular}
-\end{center}
-$x_3=1,x_4=1,LP(4)=24$
-\\
-\\
-Node \ \ 5:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
-     &      & 5   & 4  & 1  & 0  & 0  & 8 & 1.6 \\ \hline
-     &      & 1   & 0  & 0  & 0  & 0  & 1 & 1   \\ \hline
-     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
-     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3 & x4 & s1 & s2 & s3 & b  & r    \\ \hline
-     &      & 0  & 4  & 1  & 0  & 0  & 3  & 0.75 \\ \hline
-     &      & 1  & 0  & 0  & 1  & 0  & 1  & 0    \\ \hline
-     &      & 0  & 1  & 0  & 0  & 1  & 1  & 1    \\ \hline
-     &      & 0  & -4 & 0  & 0  & 0  & 20 &      \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3 & x4 & s1    & s2 & s3 & b    \\ \hline
-     &      & 0  & 1  & 0.25  & 0  & 0  & 0.75 \\ \hline
-     &      & 1  & 0  & 0     & 1  & 0  & 1    \\ \hline
-     &      & 0  & 0  & -0.25 & 0  & 1  & 0.25 \\ \hline
-     &      & 0  & 0  & 1     & 0  & 0  & 23   \\ \hline
-\end{tabular}
-\end{center}
-$x_2=1,x_3=1,x_4=0.75,LP(5)=23+2=25$
-\\
-\\
-Node \ \ 6:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2=0 & x3  & x4 & s1 & s2 & s3 & b & r   \\ \hline
-     &      & 5   & 4  & 1  & 0  & 0  & 1 & 0.2 \\ \hline
-     &      & 1   & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
-     &      & 0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
-     &      & -20 & -4 & 0  & 0  & 0  & 0 &     \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2=0 & x3 & x4   & s1   & s2 & s3 & b   \\ \hline
-     &      & 1  & 0.8  & 0.2  & 0  & 0  & 0.2 \\ \hline
-     &      & 0  & -0.8 & -0.2 & 1  & 0  & 0.8 \\ \hline
-     &      & 0  & 1    & 0    & 0  & 1  & 1   \\ \hline
-     &      & 0  & 12   & 4    & 0  & 0  & 4   \\ \hline
-\end{tabular}
-\end{center}
-$x_1=1,x_3=0.2,LP(6)=4+24=28$
-\\
-\\
-Node \ \ 7: \  \ $x_1=1,x_2=1,LP(7)=26$
-\\
-\\
-Node \ \ 8:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3=0 & x4 & s1 & s2 & b & r \\ \hline
-     &      &      & 4  & 1  & 0  & 8 & 2 \\ \hline
-     &      &      & 1  & 0  & 1  & 1 & 1 \\ \hline
-     &      &      & -4 & 0  & 0  & 0 &   \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3=0 & x4 & s1 & s2 & b \\ \hline
-     &      &      & 0  & 1  & -4 & 4 \\ \hline
-     &      &      & 1  & 0  & 1  & 1 \\ \hline
-     &      &      & 0  & 0  & 4  & 4 \\ \hline
-\end{tabular}
-\end{center}
-$x_2=1,x_4=1,LP(8)=4+2=6$
-\\
-\\
-Node \ \ 9:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3=1 & x4 & s1 & s2 & b & r    \\ \hline
-     &      &      & 4  & 1  & 0  & 3 & 0.75 \\ \hline
-     &      &      & 1  & 0  & 1  & 1 & 1    \\ \hline
-     &      &      & -4 & 0  & 0  & 0 &      \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
-x1=0 & x2=1 & x3=1 & x4 & s1    & s2 & b    \\ \hline
-     &      &      & 1  & 0.25  & 0  & 0.75 \\ \hline
-     &      &      & 0  & -0.25 & 1  & 0.25 \\ \hline
-     &      &      & 0  & 1     & 0  & 3    \\ \hline
-\end{tabular}
-\end{center}
-$x_2=1,x_3=1,x_4=0.75,LP(9)=3+2+20=25$
-\\
-\\
-Node \ \ 10:
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2=0 & x3=0 & x4 & s1 & s2 & b & r    \\ \hline
-     &      &      & 4  & 1  & 0  & 1 & 0.25 \\ \hline
-     &      &      & 1  & 0  & 1  & 1 & 1    \\ \hline
-     &      &      & -4 & 0  & 0  & 0 &      \\ \hline
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
-x1=1 & x2=0 & x3=0 & x4 & s1    & s2 & b    \\ \hline
-     &      &      & 1  & 0.25  & 0  & 0.25 \\ \hline
-     &      &      & 0  & -0.25 & 1  & 0.75 \\ \hline
-     &      &      & 0  & 1     & 0  & 1    \\ \hline
-\end{tabular}
-\end{center}
-$x_1=1,x_4=0.25,LP(10)=1+24=25$
-\\
-\\
-Node \ \ 11: \  \ There is no feasible solution when $x_1=1,x_2=0,x_3=1$
-\\
-\\
-\\
-\begin{center}
-The solution for IP is: $x_1=1,x_2=1,x_3=0,x_4=0$
-\\
-So Max $24x_1+2x_2+20x_3+4x_4=26$
-\\
-\ \
-\\
-\ \
-\\
-Thanks
 \end{center}
 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  & r \\ \hline
+1\cellcolor{yellow!25}  & \cellcolor{yellow!25}0  & \cellcolor{pink!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}-5 & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}4  & \cellcolor{yellow!25}1 \\ \hline
+1  & 0  & \cellcolor{pink!25}0  & 0  & 1  & 0  & 0  & 1  & 0 \\ \hline
+0  & 1  & \cellcolor{pink!25}0  & 0  & 0  & 1  & 0  & 1  & 0 \\ \hline
+0  & 0  & \cellcolor{pink!25}1  & 0  & 0  & 0  & 1  & 1  & 1 \\ \hline
+-2 & 0  & \cellcolor{pink!25}-4 & 0  & 0  & 20 & 0  & 20 & -5 \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  & r \\ \hline
+\cellcolor{pink!25}0.25  & 0  & 1  & 0.25  & 0  & -1.25 & 0  & 1  & 4 \\ \hline
+\cellcolor{pink!25}1     & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0     & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0     & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}1 \\ \hline
+\cellcolor{pink!25}0     & 1  & 0  & 0     & 0  & 1     & 0  & 1  & 0 \\ \hline
+\cellcolor{pink!25}-0.25 & 0  & 0  & -0.25 & 0  & 1.25  & 1  & 0  & 0 \\ \hline
+\cellcolor{pink!25}-1    & 0  & 0  & 1     & 0  & 15    & 0  & 24 & -24  \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  \\ \hline
+0  & 0  & 1  & 0.25  & -0.25 & -1.25 & 0  & 0.75 \\ \hline
+1  & 0  & 0  & 0     & 1     & 0     & 0  & 1    \\ \hline
+0  & 1  & 0  & 0     & 0     & 1     & 0  & 1    \\ \hline
+0  & 0  & 0  & -0.25 & 0.25  & 1.25  & 1  & 0.25 \\ \hline
+0  & 0  & 0  & 1     & 1     & 15    & 0  & 25   \\ \hline
+\end{tabular}
+\end{center}
+So we get: $x_2=1,\: x_3=1, \: x_4=0.75,\: LP(2)=25$
+\\
+\subsubsection*{Step 3}
+\begin{flalign*}
+\textbf{Because of: }x_1=1 \\
+\textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+8 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+1 x_2 + 5 x_3 + 4 x_4 \le 1 \\
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  & r \\ \hline
+\cellcolor{yellow!25}1  & \cellcolor{pink!25}5   & \cellcolor{yellow!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}0.2 \\ \hline
+1  & \cellcolor{pink!25}0   & 0  & 0  & 1  & 0  & 0  & 1 & 0   \\ \hline
+0  & \cellcolor{pink!25}1   & 0  & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+0  & \cellcolor{pink!25}0   & 1  & 0  & 0  & 0  & 1  & 1 & 0   \\ \hline
+-2 & \cellcolor{pink!25}-20 & -4 & 0  & 0  & 0  & 0  & 0 & 0   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_2$ & $x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & $s_4$ & b  \\ \hline
+ 0.2  & 1  & 0.8  & 0.2  & 0  & 0  & 0  & 0.2 \\ \hline
+ 1    & 0  & 0    & 0    & 1  & 0  & 0  & 1   \\ \hline
+ -0.2 & 0  & -0.8 & -0.2 & 0  & 1  & 0  & 0.8 \\ \hline
+ 0    & 0  & 1    & 0    & 0  & 0  & 1  & 1   \\ \hline
+ 2    & 0  & 12   & 4    & 0  & 0  & 0  & 4   \\ \hline
+\end{tabular}
+\end{center}
+So we get: $x_1=1, \: x_3=0.2, \: LP(3)=24*1 + 20*0.2 = 24 + 4 =28$
+\\
+\subsubsection*{Step 4 $x_1=0, \: x_2=0$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b  & r \\ \hline
+\cellcolor{pink!25}5   & 4  & 1  & 0  & 0  & 9 & 1.8 \\ \hline
+\cellcolor{pink!25}1   & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}1   \\ \hline
+\cellcolor{pink!25}0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+\cellcolor{pink!25}-20 & -4 & 0  & 0  & 0  & 0 & 0   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b  & r \\ \hline
+0  & \cellcolor{pink!25}4  & 1  & -5 & 0  & 4  & 1 \\ \hline
+1  & \cellcolor{pink!25}0  & 0  & 1  & 0  & 1  & 0 \\ \hline
+\cellcolor{yellow!25}0  & \cellcolor{pink!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}1 \\ \hline
+0  & \cellcolor{pink!25}-4 & 0  & 20 & 0  & 20 &  -5 \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b \\ \hline
+0  & 0  & 1  & -5 & -4 & 0  \\ \hline
+1  & 0  & 0  & 1  & 0  & 1  \\ \hline
+0  & 1  & 0  & 0  & 1  & 1  \\ \hline
+0  & 0  & 0  & 20 & 4  & 24 \\ \hline
+\end{tabular}
+\end{center}
+So we get: $x_3=1,x_4=1,LP(4)=24$
+\\
+\subsubsection*{Step 5}
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=0, \: x_2=1 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     0 + 1 + 5 x_3 + 4 x_4 \le 9 \\
+     5 x_3 + 4 x_4 \le 8 \\
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b & r\\ \hline
+\cellcolor{pink!25}5   & 4  & 1  & 0  & 0  & 8 & 1.6 \\ \hline
+\cellcolor{pink!25}1   & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}1   \\ \hline
+\cellcolor{pink!25}0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+\cellcolor{pink!25}-20 & -4 & 0  & 0  & 0  & 0 & 0   \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b & r\\ \hline
+\cellcolor{yellow!25}0  & \cellcolor{pink!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}-5  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}3  &\cellcolor{yellow!25} 0.75 \\ \hline
+1  & \cellcolor{pink!25}0  & 0  & 1  & 0  & 1  & 0    \\ \hline
+0  & \cellcolor{pink!25}1  & 0  & 0  & 1  & 1  & 1    \\ \hline
+0  & \cellcolor{pink!25}-4 & 0  & 20  & 0  & 20 & -5    \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b\\ \hline
+0  & 1  & 0.25  & -1.25  & 0  & 0.75 \\ \hline
+1  & 0  & 0     & 1  & 0  & 1    \\ \hline
+0  & 0  & -0.25 & 1.25  & 1  & 0.25 \\ \hline
+0  & 0  & 1     & 15  & 0  & 23   \\ \hline
+\end{tabular}
+\end{center}
+So we get: $x_1=0, \: x_2=1, \: x_3=1, \:x_4=0.75, \: LP(5)=23+2=25$
+\\
+\subsubsection*{Step 6}
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=1, \: x_2=0 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     8 + 0 + 5 x_3 + 4 x_4 \le 9 \\
+     5 x_3 + 4 x_4 \le 1 \\
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b & r\\ \hline
+\cellcolor{pink!25}5   & \cellcolor{yellow!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}0.2 \\ \hline
+\cellcolor{pink!25}1   & 0  & 0  & 1  & 0  & 1 & 1   \\ \hline
+\cellcolor{pink!25}0   & 1  & 0  & 0  & 1  & 1 & 0   \\ \hline
+\cellcolor{pink!25}-20 & -4 & 0  & 0  & 0  & 0 & 0    \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_3$  & $x_4$ & $s_1$ & $s_2$ & $s_3$ & b\\ \hline
+1  & 0.8  & 0.2  & 0  & 0  & 0.2 \\ \hline
+0  & -0.8 & -0.2 & 1  & 0  & 0.8 \\ \hline
+0  & 1    & 0    & 0  & 1  & 1   \\ \hline
+0  & 12   & 4    & 0  & 0  & 4   \\ \hline
+\end{tabular}
+\end{center}
+So we get: $x_1=1,\: x_2=0, \: x_3=0.2, \: LP(6)=24*1 + 0 + 0.2*20 = 24 + 4 = 28$
+\\
+\subsubsection*{Step 7} 
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=1, \: x_2=1 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     8 + 1 + 5 x_3 + 4 x_4 \le 9 \\
+     5 x_3 + 4 x_4 \le 0 \\
+     \textbf{We know: }x_i \ge 0 \: \textbf{for} \: i = 1 \: \textbf{to} \: 4 \\
+     \textbf{So: } x_3 = 0, \: x_4 = 0 \\
+     \textbf{We can get: } 24x_1 + 2x_2 + 20x_3 + 4x+4 = 24 + 2 + 0 + 0 = 26
+\end{flalign*}
+\\
+\subsubsection*{Step 8}
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=0, \: x_2=1, \: x_3=0 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     0 + 1 + 0 + 4 x_4 \le 9 \\
+     4 x_4 \le 8 \\
+     x_4 \le 2 
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$ & b& r\\ \hline
+\cellcolor{pink!25}1  & 1  & 0  & 2 & 2 \\ \hline
+\cellcolor{pink!25}1  &\cellcolor{yellow!25} 0  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}1 \\ \hline
+\cellcolor{pink!25}-4 & 0  & 0  & 0 & 0 \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$  & r\\ \hline
+0  & 1  & -1 & 1 \\ \hline
+1  & 0  & 1  & 1 \\ \hline
+0  & 0  & 4  & 4 \\ \hline
+\end{tabular}
+\end{center}
+
+So we get:
+$$ x_1=0, x_2=1, x_3=0, x_4=1  $$ $$ LP(8)=24*0 + 2*1 + 20 *0 + 4 *1 =6$$
+\\
+\subsubsection*{Step 9}
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=0, \: x_2=1, \: x_3=1 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     0 + 1 + 5 + 4 x_4 \le 9 \\
+     4 x_4 \le 3 \\
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$  & b & r\\ \hline
+\cellcolor{pink!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}3 & \cellcolor{yellow!25}0.75 \\ \hline
+\cellcolor{pink!25}1  & 0  & 1  & 1 & 1    \\ \hline
+\cellcolor{pink!25}-4 & 0  & 0  & 0 & 0    \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$  & b\\ \hline
+1  & 0.25  & 0  & 0.75 \\ \hline
+0  & -0.25 & 1  & 0.25 \\ \hline
+0  & 1     & 0  & 3    \\ \hline
+\end{tabular}
+\end{center}
+So we get:
+$$ x_1=0, x_2=1, x_3=1, x_4=0.75  $$ $$ LP(8)=24*0 + 2*1 + 20 *1 + 4 *0.75 =25$$
+\\
+\subsubsection*{Step 10}
+
+\begin{flalign*}
+     \textbf{Because of: }x_1=1, \: x_2=0, \: x_3=0 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     8 + 0 + 0 + 4 x_4 \le 9 \\
+     4 x_4 \le 1 \\
+\end{flalign*}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$  & b & r\\ \hline
+\cellcolor{pink!25}4  & \cellcolor{yellow!25}1  & \cellcolor{yellow!25}0  & \cellcolor{yellow!25}1 & \cellcolor{yellow!25}0.25 \\ \hline
+\cellcolor{pink!25}1  & 0  & 1  & 1 & 1    \\ \hline
+\cellcolor{pink!25}-4 & 0  & 0  & 0 & 0    \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$x_4$ & $s_1$ & $s_2$  & b\\ \hline
+1  & 0.25  & 0  & 0.25 \\ \hline
+0  & -0.25 & 1  & 0.75 \\ \hline
+0  & 1     & 0  & 1    \\ \hline
+\end{tabular}
+\end{center}
+So we get: $$x_1=1,x_2=0,x_3=0,x_4=0.25$$ $$LP(10)=24*1+2*0+20*0+4*0.25=25$$
+\subsubsection*{Step 11}
+\begin{flalign*}
+     \textbf{Because of: }x_1=1, \: x_2=0, \: x_3=1 \\
+     \textbf{So: }8 x_1 + 1 x_2 + 5 x_3 + 4 x_4 \le 9 \\
+     8 + 0 + 5 + 4 x_4 \le 9 \\
+     13 + 4 x_4 \le 9 \\
+     \textbf{So it is not feasible.}
+\end{flalign*}
+
+\subsection*{In Step 7 we get the best solution: 26}
 
 \end{document}
