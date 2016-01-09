@@ -1,0 +1,17 @@
+---
+title: "R-introduction"
+output: html_document
+---
+
+## R has five basic or "atomic" classes of objects
+
+- character
+- numeric (real numbers)
+- integer
+- complex
+- logic (True/False)
+
+## The most baisc object is vector
+
+- A vector and only contain objects of the same class.
+- BUT: The one exception is list, which represent a vector but can contain objects of different classes(indeed, that's usually why we use them)
