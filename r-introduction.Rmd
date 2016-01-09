@@ -3,7 +3,11 @@ title: "R-introduction"
 output: html_document
 ---
 
-## R has five basic or "atomic" classes of objects
+## Baisc
+
+---
+
+### R has five basic or "atomic" classes of objects
 
 - character
 - numeric (real numbers)
@@ -11,17 +15,17 @@ output: html_document
 - complex
 - logic (True/False)
 
-## The most baisc object is vector
+### The most baisc object is vector
 
 - A vector and only contain objects of the same class.
 - BUT: The one exception is list, which represent a vector but can contain objects of different classes(indeed, that's usually why we use them)
 
-## Numbers in R a generally treated as numeric objects
+### Numbers in R a generally treated as numeric objects
 
 - typeof(1): [1] "double"
 - typeof(1L): [1] "integer"
 
-## Attributes
+### Attributes
 
 - names, dimnames
 - dimensions
@@ -30,3 +34,28 @@ output: html_document
 - other user-defined attributes/metadata 
 
 Attributes of object can be accessed using the attributes() function.
+
+---
+
+## Creating vectors
+
+### the c() function:
+
+- x <- c(0.5, 0.6)
+- y <- c(TRUE, FALSE)
+- z <- c(T, F)
+- a <- c('a', 'b', 'c')
+- b <- 9:20
+- c <- c(1+0i, 2+4i)
+
+### using the vector() function
+
+- x <- vector("numeric", length=10)
+
+### Mixing Object
+
+- x <- c(1.7 'a') ##character
+- y <- c(TRUE, 2) ##numeric
+- z <- c('a', TRUE) ##character
+
+
