@@ -137,6 +137,11 @@ Matrices are vectors with a dimension attribute. The dimension is itsefl an inte
      [,1] [,2] [,3]
 [1,]   NA   NA   NA
 [2,]   NA   NA   NA
+> dim(x)
+[1] 2 3
+> attributes(x)
+$dim
+[1] 2 3
 
 ```
 
