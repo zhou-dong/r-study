@@ -249,3 +249,47 @@ Data frames are used to store tabular data.
 > row.names(x)
 [1] "1" "2" "3" "4"
 ```
+
+### Names
+
+All R objects can have names.
+
+```R
+> x <- 1:3
+> x
+[1] 1 2 3
+> names(x)
+NULL
+> names(x) <- c("dong", 'dong', 'snow')
+> names(x)
+[1] "dong" "dong" "snow"
+> x
+dong dong snow 
+   1    2    3 
+> x('dong')
+>
+> x <- list(a=1, b=2, c=3)
+> x
+$a
+[1] 1
+
+$b
+[1] 2
+
+$c
+[1] 3
+
+> names(x)
+[1] "a" "b" "c"
+>
+> x <- matrix(1:4, nrow=2, ncol=2)
+> x
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> dimnames(x) <- list(c('a','b'), c('c','d'))
+> x
+  c d
+a 1 3
+b 2 4
+```
