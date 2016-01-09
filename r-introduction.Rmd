@@ -20,3 +20,13 @@ output: html_document
 
 - typeof(1): [1] "double"
 - typeof(1L): [1] "integer"
+
+## Attributes
+
+- names, dimnames
+- dimensions
+- class
+- length
+- other user-defined attributes/metadata 
+
+Attributes of object can be accessed using the attributes() function.
