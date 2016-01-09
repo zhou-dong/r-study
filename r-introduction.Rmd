@@ -15,3 +15,8 @@ output: html_document
 
 - A vector and only contain objects of the same class.
 - BUT: The one exception is list, which represent a vector but can contain objects of different classes(indeed, that's usually why we use them)
+
+## Numbers in R a generally treated as numeric objects
+
+- typeof(1): [1] "double"
+- typeof(1L): [1] "integer"
