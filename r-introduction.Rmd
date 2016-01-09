@@ -212,14 +212,25 @@ attr(,"levels")
 
 ### Missing Values
 
-- NAN: 
-- NA:
+- NaN: for undefined for mathematical operations
+- NA: for everything is undefined
 
+- NaN belong to NA
+
+```R
+> x <- c(1, 2, 3, NA, NaN, 5)
+> is.na(x)
+[1] FALSE FALSE FALSE  TRUE  TRUE FALSE
+> is.nan(x)
+[1] FALSE FALSE FALSE FALSE  TRUE FALSE
+```
 
 ### Data Frames
 
 Data frames are used to store tabular data.
 
+- They are represented as special types of list
+    + Every element of list has the same length.
 - Data frames also have special attribute call 
     + row.names
     + every row in data frames has a name
