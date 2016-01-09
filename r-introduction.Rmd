@@ -106,8 +106,6 @@ x <- vector("numeric", length=10)
 
 ### Lists
 
----
-
 ```R
 > x <- list('a' ,1 , TRUE, '1+4i')
 > x
@@ -123,3 +121,22 @@ x <- vector("numeric", length=10)
 [[4]]
 [1] "1+4i"
 ```
+
+### Matrix
+
+Matrices are vectors with a dimension attribute. The dimension is itsefl an integer vector of length 2(nrow, ncol)
+
+```R
+> x <- matrix()
+> x
+     [,1]
+[1,]   NA
+>
+> x <- matrix(nrow = 2, ncol = 3)
+> x
+     [,1] [,2] [,3]
+[1,]   NA   NA   NA
+[2,]   NA   NA   NA
+
+```
+
