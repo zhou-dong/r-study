@@ -209,3 +209,33 @@ attr(,"levels")
 [1] "yes" "no" 
 
 ```
+
+### Missing Values
+
+- NAN: 
+- NA:
+
+
+### Data Frames
+
+Data frames are used to store tabular data.
+
+- Data frames also have special attribute call 
+    + row.names
+    + every row in data frames has a name
+- Data frames are usually create by calling 
+    + read.table() or read.csv()
+- Data frames can be converted to a matrix by calling 
+    + data.matrix()
+    
+```R
+> x <- data.frame(Index=1:4, name=c('dong','zhou','snow','snow'), result=c(T,T,T,F)) ;
+> x
+  Index name result
+1     1 dong   TRUE
+2     2 zhou   TRUE
+3     3 snow   TRUE
+4     4 snow  FALSE
+> row.names(x)
+[1] "1" "2" "3" "4"
+```

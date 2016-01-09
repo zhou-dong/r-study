@@ -232,7 +232,40 @@ f
  &gt; unclass(f)
 [1] 2 2 1 2 1
 attr(,&quot;levels&quot;)
-[1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+[1] &quot;no&quot;  &quot;yes&quot;
+&gt;
+&gt; f &lt;- factor(c('yes','yes','no','yes','no') , levels = c('yes','no')) 
+&gt; f
+[1] yes yes no  yes no 
+Levels: yes no
+&gt; table(f)
+f
+yes  no 
+  3   2 
+&gt; unclass(f)
+[1] 1 1 2 1 2
+attr(,&quot;levels&quot;)
+[1] &quot;yes&quot; &quot;no&quot; 
+</code></pre>
+</div>
+<div id="missing-values" class="section level3">
+<h3>Missing Values</h3>
+<ul>
+<li>NAN:</li>
+<li>NA</li>
+</ul>
+</div>
+<div id="data-frames" class="section level3">
+<h3>Data Frames</h3>
+<p>Data frames are used to store tabular data.</p>
+<ul>
+<li>Data frames also have special attribute call row.names
+<ul>
+<li>every row in data frames has a name</li>
+</ul></li>
+<li>Data frames are usually create by calling read.table() or read.csv()</li>
+<li>Data frames can be converted to a matrix by calling data.matrix()</li>
+</ul>
 </div>
 
 
