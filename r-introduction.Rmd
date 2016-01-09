@@ -22,8 +22,12 @@ output: html_document
 
 #### Numbers in R a generally treated as numeric objects
 
-- typeof(1): [1] "double"
-- typeof(1L): [1] "integer"
+```R
+> typeof(1)
+[1] "double"
+> typeof(1L)
+[1] "integer"
+```
 
 #### Attributes
 
@@ -35,27 +39,53 @@ output: html_document
 
 Attributes of object can be accessed using the attributes() function.
 
----
-
 ### Creating vectors
+
+---
 
 #### the c() function:
 
-- x <- c(0.5, 0.6)
-- y <- c(TRUE, FALSE)
-- z <- c(T, F)
-- a <- c('a', 'b', 'c')
-- b <- 9:20
-- c <- c(1+0i, 2+4i)
+```R
+x <- c(0.5, 0.6)
+y <- c(TRUE, FALSE)
+z <- c(T, F)
+a <- c('a', 'b', 'c')
+b <- 9:20
+c <- c(1+0i, 2+4i)
+```
 
 #### using the vector() function
 
-- x <- vector("numeric", length=10)
+```R
+x <- vector("numeric", length=10)
+```
 
 #### Mixing Object
 
-- x <- c(1.7 'a') ##character
-- y <- c(TRUE, 2) ##numeric
-- z <- c('a', TRUE) ##character
+```R
+> x <- c(1.7, 'a') 
+> typeof(x)
+[1] "character"
+> x <- c(TRUE, 2)
+> typeof(x)
+[1] "double"
+> x <- c('a', TRUE)
+> typeof(x)
+[1] "character"
+```
+
+#### Explicit Coerction
+
+```R
+> x <- 0:6
+> as.logical(x)
+[1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+> as.numeric(x)
+[1] 0 1 2 3 4 5 6
+> as.character(x)
+[1] "0" "1" "2" "3" "4" "5" "6"
+> as.complex(x)
+[1] 0+0i 1+0i 2+0i 3+0i 4+0i 5+0i 6+0i
+```
 
 

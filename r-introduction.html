@@ -86,10 +86,10 @@ img {
 </div>
 <div id="numbers-in-r-a-generally-treated-as-numeric-objects" class="section level4">
 <h4>Numbers in R a generally treated as numeric objects</h4>
-<ul>
-<li>typeof(1): [1] “double”</li>
-<li>typeof(1L): [1] “integer”</li>
-</ul>
+<pre class="r"><code>&gt; typeof(1)
+[1] &quot;double&quot;
+&gt; typeof(1L)
+[1] &quot;integer&quot;</code></pre>
 </div>
 <div id="attributes" class="section level4">
 <h4>Attributes</h4>
@@ -101,35 +101,47 @@ img {
 <li>other user-defined attributes/metadata</li>
 </ul>
 <p>Attributes of object can be accessed using the attributes() function.</p>
-<hr />
 </div>
 </div>
 <div id="creating-vectors" class="section level3">
 <h3>Creating vectors</h3>
+<hr />
 <div id="the-c-function" class="section level4">
 <h4>the c() function:</h4>
-<ul>
-<li>x &lt;- c(0.5, 0.6)</li>
-<li>y &lt;- c(TRUE, FALSE)</li>
-<li>z &lt;- c(T, F)</li>
-<li>a &lt;- c(‘a’, ‘b’, ‘c’)</li>
-<li>b &lt;- 9:20</li>
-<li>c &lt;- c(1+0i, 2+4i)</li>
-</ul>
+<pre class="r"><code>x &lt;- c(0.5, 0.6)
+y &lt;- c(TRUE, FALSE)
+z &lt;- c(T, F)
+a &lt;- c('a', 'b', 'c')
+b &lt;- 9:20
+c &lt;- c(1+0i, 2+4i)</code></pre>
 </div>
 <div id="using-the-vector-function" class="section level4">
 <h4>using the vector() function</h4>
-<ul>
-<li>x &lt;- vector(“numeric”, length=10)</li>
-</ul>
+<pre class="r"><code>x &lt;- vector(&quot;numeric&quot;, length=10)</code></pre>
 </div>
 <div id="mixing-object" class="section level4">
 <h4>Mixing Object</h4>
-<ul>
-<li>x &lt;- c(1.7 ‘a’) ##character</li>
-<li>y &lt;- c(TRUE, 2) ##numeric</li>
-<li>z &lt;- c(‘a’, TRUE) ##character</li>
-</ul>
+<pre class="r"><code>&gt; x &lt;- c(1.7, 'a') 
+&gt; typeof(x)
+[1] &quot;character&quot;
+&gt; x &lt;- c(TRUE, 2)
+&gt; typeof(x)
+[1] &quot;double&quot;
+&gt; x &lt;- c('a', TRUE)
+&gt; typeof(x)
+[1] &quot;character&quot;</code></pre>
+</div>
+<div id="explicit-coerction" class="section level4">
+<h4>Explicit Coerction</h4>
+<pre class="r"><code>&gt; x &lt;- 0:6
+&gt; as.logical(x)
+[1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+&gt; as.numeric(x)
+[1] 0 1 2 3 4 5 6
+&gt; as.character(x)
+[1] &quot;0&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot;
+&gt; as.complex(x)
+[1] 0+0i 1+0i 2+0i 3+0i 4+0i 5+0i 6+0i</code></pre>
 </div>
 </div>
 
