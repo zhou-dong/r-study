@@ -214,7 +214,6 @@ attr(,"levels")
 
 - NaN: for undefined for mathematical operations
 - NA: for everything is undefined
-
 - NaN belong to NA
 
 ```R
