@@ -177,3 +177,35 @@ n    7    8    9
 [2,] 2 8
 [3,] 3 9
 ```
+
+### Factors
+
+
+```R
+> f <- factor(c('yes','yes','no','yes','no')) ;
+> f
+[1] yes yes no  yes no 
+Levels: no yes
+> table(f)
+f
+ no yes 
+  2   3 
+ > unclass(f)
+[1] 2 2 1 2 1
+attr(,"levels")
+[1] "no"  "yes"
+>
+> f <- factor(c('yes','yes','no','yes','no') , levels = c('yes','no')) 
+> f
+[1] yes yes no  yes no 
+Levels: yes no
+> table(f)
+f
+yes  no 
+  3   2 
+> unclass(f)
+[1] 1 1 2 1 2
+attr(,"levels")
+[1] "yes" "no" 
+
+```
