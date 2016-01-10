@@ -5,12 +5,16 @@ date: "01/09/2016"
 output: html_document
 ---
 
-### Reading Data
+### Reading and Writing Data
+
+---
+
+#### reading 
 
 - read.csv, read.table
     + for reading tabular data
     + return data frame in R
-- readline
+- readLines
     + reading lines of text file
 - source
     + reading R code file
@@ -22,6 +26,16 @@ output: html_document
     + reading in saved workspaces
 - unserialize
     + reading single R object in binary form
+
+
+#### writing 
+
+- write.table
+- writeLines
+- dump
+- dput
+- save
+- serialize
 
 ### Subsetting 
 
