@@ -68,6 +68,68 @@ img {
 </div>
 
 
+<div id="reading-and-writing-data" class="section level3">
+<h3>Reading and Writing Data</h3>
+<hr />
+<div id="reading" class="section level4">
+<h4>reading</h4>
+<ul>
+<li>read.csv, read.table
+<ul>
+<li>for reading tabular data</li>
+<li>return data frame in R</li>
+</ul></li>
+<li>readLines
+<ul>
+<li>reading lines of text file</li>
+</ul></li>
+<li>source
+<ul>
+<li>reading R code file</li>
+<li>inverse of dump</li>
+</ul></li>
+<li>dget
+<ul>
+<li>reading R code file</li>
+<li>inverse of dput</li>
+</ul></li>
+<li>load
+<ul>
+<li>reading in saved workspaces</li>
+</ul></li>
+<li>unserialize
+<ul>
+<li>reading single R object in binary form</li>
+</ul></li>
+</ul>
+</div>
+<div id="writing" class="section level4">
+<h4>writing</h4>
+<ul>
+<li>write.table</li>
+<li>writeLines</li>
+<li>dump</li>
+<li>dput</li>
+<li>save</li>
+<li>serialize</li>
+</ul>
+</div>
+<div id="reading-large-set-of-data" class="section level4">
+<h4>reading large set of data</h4>
+<pre class="r"><code>initial &lt;- read.table(&quot;test.txt&quot;, nrows=100)
+classes &lt;- sapply(initial, class)
+tableAll &lt;- read.table(&quot;test.txt&quot;, colClasses=classes)</code></pre>
+</div>
+</div>
+<div id="interface-with-outside-world" class="section level3">
+<h3>interface with outside world</h3>
+<ul>
+<li>file</li>
+<li>gzfile</li>
+<li>bzfile</li>
+<li>url</li>
+</ul>
+</div>
 <div id="subsetting" class="section level3">
 <h3>Subsetting</h3>
 <hr />
@@ -97,11 +159,12 @@ img {
 <pre class="r"><code>&gt; x &lt;- c('a','b','c','c','d','a')
 &gt; x
 [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot; &quot;a&quot;</code></pre>
+<p>subset by index</p>
 <pre class="r"><code>&gt; x[1]
 [1] &quot;a&quot;
 &gt; x[2]
-[1] &quot;b&quot;
-&gt; x[1:4]
+[1] &quot;b&quot;</code></pre>
+<pre class="r"><code>&gt; x[1:4]
 [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot;
 &gt; x[4:1]
 [1] &quot;c&quot; &quot;c&quot; &quot;b&quot; &quot;a&quot;</code></pre>
@@ -109,11 +172,11 @@ img {
 <div id="logical-index" class="section level5">
 <h5>logical index</h5>
 <pre class="r"><code>&gt; x [x&gt;'a']
-[1] &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot;
-&gt; u &lt;- x&gt;'a'
+[1] &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot;</code></pre>
+<pre class="r"><code>&gt; u &lt;- x&gt;'a'
 &gt; u
-[1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE
-&gt; x[u]
+[1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+<pre class="r"><code>&gt; x[u]
 [1] &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot;</code></pre>
 </div>
 </div>
@@ -133,14 +196,14 @@ $foo
 [1] 1 2 3 4</code></pre>
 <p>[[]] return the single element of the list</p>
 <pre class="r"><code>&gt; x[[1]]
-[1] 1 2 3 4
-&gt; x[['foo']]
-[1] 1 2 3 4
-&gt; name &lt;- 'foo'
-&gt; x[name] #return list
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; x[['foo']]
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; name &lt;- 'foo'</code></pre>
+<pre class="r"><code>&gt; x[name] #return list
 $foo
-[1] 1 2 3 4
-&gt; x[[name]] #return element
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; x[[name]] #return element
 [1] 1 2 3 4</code></pre>
 <p>$ return the elment associate with the name</p>
 <pre class="r"><code>&gt; x$bar
@@ -247,6 +310,42 @@ NULL
 [1] &quot;a&quot; &quot;b&quot; &quot;d&quot;</code></pre>
 </div>
 </div>
+</div>
+<div id="vectorized-operations" class="section level3">
+<h3>Vectorized Operations</h3>
+<hr />
+<p>create x and y</p>
+<pre class="r"><code>&gt; x &lt;- 1:4
+&gt; y &lt;- 5:8
+&gt; x
+[1] 1 2 3 4
+&gt; y
+[1] 5 6 7 8</code></pre>
+<p>add</p>
+<pre class="r"><code>&gt; x+y
+[1]  6  8 10 12</code></pre>
+<p>substract</p>
+<pre class="r"><code>&gt; x-y
+[1] -4 -4 -4 -4</code></pre>
+<p>multiply</p>
+<pre class="r"><code>&gt; x*y
+[1]  5 12 21 32</code></pre>
+<p>devided</p>
+<pre class="r"><code>&gt; x/y
+[1] 0.2000000 0.3333333 0.4285714 0.5000000</code></pre>
+<p>vector * vector</p>
+<pre class="r"><code>&gt; x %*% y
+     [,1]
+[1,]   70</code></pre>
+<p>logical operation</p>
+<pre class="r"><code>&gt; x&gt;y
+[1] FALSE FALSE FALSE FALSE
+&gt; x ==y
+[1] FALSE FALSE FALSE FALSE
+&gt; x &lt;y
+[1] TRUE TRUE TRUE TRUE
+&gt; x ==2
+[1] FALSE  TRUE FALSE FALSE</code></pre>
 </div>
 
 
