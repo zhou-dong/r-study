@@ -191,6 +191,13 @@ $bar
 [1] 1 3 5
 &gt; x[,2]
 [1] 3 4</code></pre>
+<p>subset of matrix still be matrix</p>
+<pre class="r"><code>&gt; x[1,2, drop=FALSE]
+     [,1]
+[1,]    3</code></pre>
+<pre class="r"><code>&gt; x[1,, drop=FALSE]
+     [,1] [,2] [,3]
+[1,]    1    3    5</code></pre>
 </div>
 <div id="partial-matching" class="section level4">
 <h4>Partial Matching</h4>
