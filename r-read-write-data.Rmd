@@ -221,3 +221,31 @@ remove NA
 > x[!bad]
 [1] 1 2 5 7
 ```
+
+##### method two:
+
+create vectors
+
+```R
+> x <- c(1, 2, NA, 5, NA, 7)
+> y <- c('a', 'b', NA, 'd', NA, NA)
+> x
+[1]  1  2 NA  5 NA  7
+> y
+[1] "a" "b" NA  "d" NA  NA
+```
+
+detected good
+
+```R
+> good <- complete.cases(x, y)
+> good
+[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE
+```
+
+```R
+> x[good]
+[1] 1 2 5
+> y[good]
+[1] "a" "b" "d"
+```
