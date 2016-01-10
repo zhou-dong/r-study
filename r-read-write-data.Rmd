@@ -45,6 +45,13 @@ classes <- sapply(initial, class)
 tableAll <- read.table("test.txt", colClasses=classes)
 ```
 
+### interface with outside world
+
+- file
+- gzfile
+- bzfile
+- url
+
 ### Subsetting 
 
 ---
