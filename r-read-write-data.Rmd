@@ -243,6 +243,8 @@ detected good
 [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE
 ```
 
+remove NA
+
 ```R
 > x[good]
 [1] 1 2 5
