@@ -25,14 +25,23 @@ output: html_document
 
 ##### numeric index
 
+create vector
 ```R
 > x <- c('a','b','c','c','d','a')
 > x
 [1] "a" "b" "c" "c" "d" "a"
+```
+
+subset by index
+
+```R
 > x[1]
 [1] "a"
 > x[2]
 [1] "b"
+```
+
+```R
 > x[1:4]
 [1] "a" "b" "c" "c"
 > x[4:1]
@@ -44,9 +53,15 @@ output: html_document
 ```R
 > x [x>'a']
 [1] "b" "c" "c" "d"
+```
+
+```R
 > u <- x>'a'
 > u
 [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+```
+
+```R
 > x[u]
 [1] "b" "c" "c" "d"
 ```
@@ -78,12 +93,24 @@ $foo
 ```R
 > x[[1]]
 [1] 1 2 3 4
+```
+
+```R
 > x[['foo']]
 [1] 1 2 3 4
+```
+
+```R
 > name <- 'foo'
+```
+
+```R
 > x[name] #return list
 $foo
 [1] 1 2 3 4
+```
+
+```R
 > x[[name]] #return element
 [1] 1 2 3 4
 ```

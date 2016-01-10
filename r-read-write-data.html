@@ -93,10 +93,11 @@ img {
 <h4>Baisc</h4>
 <div id="numeric-index" class="section level5">
 <h5>numeric index</h5>
+<p>create vector</p>
 <pre class="r"><code>&gt; x &lt;- c('a','b','c','c','d','a')
 &gt; x
-[1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot; &quot;a&quot;
-&gt; x[1]
+[1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;d&quot; &quot;a&quot;</code></pre>
+<pre class="r"><code>&gt; x[1]
 [1] &quot;a&quot;
 &gt; x[2]
 [1] &quot;b&quot;
@@ -201,11 +202,50 @@ $bar
 </div>
 <div id="partial-matching" class="section level4">
 <h4>Partial Matching</h4>
-<pre class="r"><code></code></pre>
+<p>create list</p>
+<pre class="r"><code>&gt; x &lt;- list(abdababga = 1:4)
+&gt; x
+$abdababga
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; x$a
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; x[['a']]
+NULL
+&gt; x[['a', exact=F]]
+[1] 1 2 3 4</code></pre>
 </div>
 <div id="removing-missing-values" class="section level4">
 <h4>Removing Missing Values</h4>
-<pre class="r"><code></code></pre>
+<p>create vector</p>
+<pre class="r"><code>&gt; x &lt;- c(1, 2, NA, 5, NA, 7)
+&gt; x
+[1]  1  2 NA  5 NA  7</code></pre>
+<p>find NA</p>
+<pre class="r"><code>&gt; bad &lt;- is.na(x)
+&gt; bad # logical vector
+[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<p>remove NA</p>
+<pre class="r"><code>&gt; x[!bad]
+[1] 1 2 5 7</code></pre>
+<div id="method-two" class="section level5">
+<h5>method two:</h5>
+<p>create vectors</p>
+<pre class="r"><code>&gt; x &lt;- c(1, 2, NA, 5, NA, 7)
+&gt; y &lt;- c('a', 'b', NA, 'd', NA, NA)
+&gt; x
+[1]  1  2 NA  5 NA  7
+&gt; y
+[1] &quot;a&quot; &quot;b&quot; NA  &quot;d&quot; NA  NA</code></pre>
+<p>detected good</p>
+<pre class="r"><code>&gt; good &lt;- complete.cases(x, y)
+&gt; good
+[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE</code></pre>
+<p>remove NA</p>
+<pre class="r"><code>&gt; x[good]
+[1] 1 2 5
+&gt; y[good]
+[1] &quot;a&quot; &quot;b&quot; &quot;d&quot;</code></pre>
+</div>
 </div>
 </div>
 
