@@ -37,6 +37,14 @@ output: html_document
 - save
 - serialize
 
+#### reading large set of data
+
+```R
+initial <- read.table("test.txt", nrows=100)
+classes <- sapply(initial, class)
+tableAll <- read.table("test.txt", colClasses=classes)
+```
+
 ### Subsetting 
 
 ---
