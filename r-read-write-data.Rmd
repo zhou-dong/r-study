@@ -1,8 +1,76 @@
 ---
-title: "Reading And Writing Data"
+title: "Reading, Writing Data, Subset of R"
 author: "Dong Zhou"
 date: "01/09/2016"
 output: html_document
 ---
 
 
+### Subsetting 
+
+---
+
+1. [] :
+    - always return an object of the same class as the original; 
+    - can be used to selected more than one element.
+2. [[]] : 
+    - is used to extract element of a list or data frames; 
+    - it can be only be used to extract a single element 
+    - and the class of return object will not necessary to be list or data frame.
+3. $
+    - is used to extract element of a list or data frames by name
+    - semantics are similar to hat of [[]]
+    
+#### Baisc 
+
+##### numeric index
+
+```R
+> x <- c('a','b','c','c','d','a')
+> x
+[1] "a" "b" "c" "c" "d" "a"
+> x[1]
+[1] "a"
+> x[2]
+[1] "b"
+> x[1:4]
+[1] "a" "b" "c" "c"
+> x[4:1]
+[1] "c" "c" "b" "a"
+```
+
+##### logical index
+
+```R
+> x [x>'a']
+[1] "b" "c" "c" "d"
+> u <- x>'a'
+> u
+[1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+> x[u]
+[1] "b" "c" "c" "d"
+```
+
+#### Lists
+
+```R
+
+```
+
+#### Matrices
+
+```R
+
+```
+
+#### Partial Matching
+
+```R
+
+```
+
+#### Removing Missing Values
+
+```R
+
+```
