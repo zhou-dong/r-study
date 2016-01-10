@@ -118,11 +118,79 @@ img {
 </div>
 <div id="lists" class="section level4">
 <h4>Lists</h4>
-<pre class="r"><code></code></pre>
+<p>List:</p>
+<pre class="r"><code>&gt; x &lt;- list(foo=1:4, bar=0.6)
+&gt; x
+$foo
+[1] 1 2 3 4
+
+$bar
+[1] 0.6</code></pre>
+<p>[] return the same class, so x[1] still list</p>
+<pre class="r"><code>&gt; x[1]
+$foo
+[1] 1 2 3 4</code></pre>
+<p>[[]] return the single element of the list</p>
+<pre class="r"><code>&gt; x[[1]]
+[1] 1 2 3 4
+&gt; x[['foo']]
+[1] 1 2 3 4
+&gt; name &lt;- 'foo'
+&gt; x[name] #return list
+$foo
+[1] 1 2 3 4
+&gt; x[[name]] #return element
+[1] 1 2 3 4</code></pre>
+<p>$ return the elment associate with the name</p>
+<pre class="r"><code>&gt; x$bar
+[1] 0.6
+&gt; x$foo
+[1] 1 2 3 4</code></pre>
+<p>other</p>
+<pre class="r"><code>&gt; x &lt;- list(foo='hello' ,bar=0.6, baz='world')
+&gt; x[c(1,3)]
+$foo
+[1] &quot;hello&quot;
+$baz
+[1] &quot;world&quot;</code></pre>
+<p>[] compare [[]]</p>
+<pre class="r"><code>&gt; x[['bar']] # return element
+[1] 0.6
+&gt; x['bar']   # return list
+$bar
+[1] 0.6</code></pre>
+<p>subsetting nested elements of a list</p>
+<pre class="r"><code>&gt; x &lt;- list(a =list(12,13,14), b=list(3.14, 2.18))
+&gt; x[[1]][[1]]
+[1] 12
+&gt; x[[2]][[1]]
+[1] 3.14
+&gt; x[[c(1,2)]]
+[1] 13
+&gt; x[[c(2,1)]]
+[1] 3.14</code></pre>
 </div>
 <div id="matrices" class="section level4">
 <h4>Matrices</h4>
-<pre class="r"><code></code></pre>
+<ul>
+<li>first index: row</li>
+<li>second index: column</li>
+</ul>
+<p>create 2*3 matrix</p>
+<pre class="r"><code>&gt; x &lt;- matrix(1:6, nrow=2, ncol=3)
+&gt; x
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+<p>example of subset</p>
+<pre class="r"><code>&gt; x[1,2]
+[1] 3
+&gt; x[2,1]
+[1] 2
+&gt; x[1,]
+[1] 1 3 5
+&gt; x[,2]
+[1] 3 4</code></pre>
 </div>
 <div id="partial-matching" class="section level4">
 <h4>Partial Matching</h4>
