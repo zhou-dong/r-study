@@ -176,8 +176,25 @@ subset of matrix still be matrix
 
 #### Partial Matching
 
-```R
+create list 
 
+```R
+> x <- list(abdababga = 1:4)
+> x
+$abdababga
+[1] 1 2 3 4
+```
+
+```R
+> x$a
+[1] 1 2 3 4
+```
+
+```R
+> x[['a']]
+NULL
+> x[['a', exact=F]]
+[1] 1 2 3 4
 ```
 
 #### Removing Missing Values
