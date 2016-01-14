@@ -1,0 +1,78 @@
+---
+title: "Dates in R"
+author: "Dong Zhou"
+date: "01/14/2016"
+output: html_document
+---
+
+#### Date stored as an object is Date class
+
+```R
+x <- as.Date("1970-01-01")
+x 
+# [1] "1970-01-01"
+unclass(x) 
+# [1] 0
+unclass(as.Date("1970-01-02"))
+# [1] 1
+```
+
+#### POSIXct and POSIXlt
+
+- POSIXct: store DATE as larger integer;
+- POSIXlt: store DATE as a list. 
+
+more about POSIXct and POSIXlt
+
+- The POSIXct and POSIXlt classes allow for dates and times with control for time zones. 
+- Date only data, as.Date will usually be the best choice.
+- POSIX classes are especially useful when timezone manipulation is important.
+
+
+```R
+x <- Sys.time()
+x #[1] "2016-01-14 11:52:33 CST"
+
+p <- as.POSIXlt(x)
+p #[1] "2016-01-14 11:53:53 CST"
+
+names(unclass(p))
+# "sec"    "min"    "hour"   "mday"   "mon"    "year"   "wday"   "yday"   "isdst"  "zone"  "gmtoff
+unclass(p)
+
+# $sec
+# [1] 5.288614
+
+# $min
+# [1] 55
+
+#$hour
+#[1] 11
+
+#$mday
+#[1] 14
+
+#$mon
+#[1] 0
+
+#$year
+#[1] 116
+
+# $wday
+#[1] 4
+
+# $yday
+# [1] 13
+
+# $isdst
+# [1] 0
+
+# $zone
+# [1] "CST"
+
+# $gmtoff
+# [1] -21600
+
+# attr(,"tzone")
+# [1] ""    "CST" "CDT"
+```
