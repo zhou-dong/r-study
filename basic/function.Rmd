@@ -56,3 +56,29 @@ Environment
 - Every environment has a parent environment; it is possible an environment has muliply children.
 - the only environment without parent is empty environment.
 - A function + an environment = a closure or function closure.
+
+Constructer Function
+
+- the function construnction another function
+
+```R
+make.power <- function(n) {
+    pow <- function(x) {
+        x^n
+    }
+    pow
+}
+square <- make.power(n=2)
+cube <- make.power(3)
+square(3) # 9
+cube(3)  # 27
+```
+
+check environment
+
+```R
+ls(environment(square))
+# [1] "n"   "pow"
+get("n", environment(square))
+# [1] 2
+```

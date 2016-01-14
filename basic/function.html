@@ -106,6 +106,25 @@ print(r)</code></pre>
 <li>the only environment without parent is empty environment.</li>
 <li>A function + an environment = a closure or function closure.</li>
 </ul>
+<p>Constructer Function</p>
+<ul>
+<li>the function construnction another function</li>
+</ul>
+<pre class="r"><code>make.power &lt;- function(n) {
+    pow &lt;- function(x) {
+        x^n
+    }
+    pow
+}
+square &lt;- make.power(n=2)
+cube &lt;- make.power(3)
+square(3) # 9
+cube(3)  # 27</code></pre>
+<p>check environment</p>
+<pre class="r"><code>ls(environment(square))
+# [1] &quot;n&quot;   &quot;pow&quot;
+get('n', environment(square))
+# [1] 2</code></pre>
 
 
 </div>
