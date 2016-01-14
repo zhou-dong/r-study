@@ -49,3 +49,10 @@ aboveN <- function(x, n=10){
 r <- aboveN(x)
 print(r)
 ```
+
+Environment
+
+- An environment is a collection of (symble, value) pairs.
+- Every environment has a parent environment; it is possible an environment has muliply children.
+- the only environment without parent is empty environment.
+- A function + an environment = a closure or function closure.
