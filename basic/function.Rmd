@@ -1,0 +1,6 @@
+---
+title: "R Function"
+author: "Dong Zhou"
+date: "01/14/2016"
+output: html_document
+---

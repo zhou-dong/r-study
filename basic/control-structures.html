@@ -68,8 +68,6 @@ img {
 </div>
 
 
-<div id="control-structures" class="section level4">
-<h4>Control Structures</h4>
 <div id="if-else" class="section level5">
 <h5>if-else</h5>
 <pre class="r"><code>if(x&gt;0){
@@ -93,16 +91,38 @@ img {
 <pre class="r"><code>for (i in 1:4){
     print (x[i])
 }</code></pre>
-<pre class="r"><code>for (i in 1:4) print (x[i])</code></pre>
 <pre class="r"><code>for (i in 1:4) 
     print (x[i])</code></pre>
+<pre class="r"><code>for (i in 1:4) print (x[i])</code></pre>
 <pre class="r"><code>for (i in seq_along(x)){
     print (x[i])
 }</code></pre>
 <pre class="r"><code>for (letter in x){
     print(letter)
 }</code></pre>
-</div>
+<p>create matrix</p>
+<pre class="r"><code>m &lt;- matrix(1:8, 2, 4)</code></pre>
+<pre class="r"><code>for(x in seq_len(nrow(m))){
+    for(y in seq_len(ncol(m))){
+        print(m[x,y])
+    } 
+}</code></pre>
+<p>while loop</p>
+<pre class="r"><code>count &lt;- 10
+while(count&gt;0){
+    print(count)
+    count &lt;- count - 1
+}</code></pre>
+<p>repeat, next, break</p>
+<pre class="r"><code>x &lt;- 100
+repeat {
+    x &lt;- (x - 1)
+    if(x &lt; 1)
+        break
+    if(x%%2 == 0)
+        next
+    print(x)
+}</code></pre>
 </div>
 
 
