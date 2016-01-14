@@ -38,8 +38,8 @@ p #[1] "2016-01-14 11:53:53 CST"
 
 names(unclass(p))
 # "sec"    "min"    "hour"   "mday"   "mon"    "year"   "wday"   "yday"   "isdst"  "zone"  "gmtoff
-unclass(p)
 
+unclass(p)
 # $sec
 # [1] 5.288614
 
