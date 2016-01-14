@@ -4,3 +4,43 @@ author: "Dong Zhou"
 date: "01/14/2016"
 output: html_document
 ---
+
+Function is also a object, like in JavaScript
+
+no return keyword!
+
+```R
+add2 <- function(x, y){
+    x + y
+}
+```
+
+steps of improve function
+
+```R
+x <- 1:20
+above10 <- function(x){
+    use <- x > 10
+    x[use]
+}
+r <- above10(x)
+print(r)
+```
+
+```R
+aboveN <- function(x, n){
+    use <- x > n
+    x[use]
+}
+r <- aboveN(x, 10)
+print(r)
+```
+
+```R
+aboveN <- function(x, n=10){
+    use <- x > n
+    x[use]
+}
+r <- aboveN(x)
+print(r)
+```
