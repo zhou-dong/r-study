@@ -5,9 +5,14 @@ date: "01/14/2016"
 output: html_document
 ---
 
-Function is also a object, like in JavaScript
+Function is also an object, like in JavaScript
 
-no return keyword!
+- Function is an object
+- Function can be pass to another object
+- No return keyword in function
+- Function argument can be matched by name
+
+Example:
 
 ```R
 add2 <- function(x, y){
