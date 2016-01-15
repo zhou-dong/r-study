@@ -337,6 +337,34 @@ $c
   c d
 a 1 3
 b 2 4</code></pre>
+<div id="sequence" class="section level4">
+<h4>sequence</h4>
+<pre class="r"><code>&gt; 1:4
+[1] 1 2 3 4</code></pre>
+<pre class="r"><code>&gt; seq(0,1, length.out = 11)
+ [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
+<pre class="r"><code>&gt; seq(1, 9, by =2)
+[1] 1 3 5 7 9</code></pre>
+<pre class="r"><code>&gt; seq(1, 9, by =3)
+[1] 1 4 7</code></pre>
+<pre class="r"><code>&gt; seq(1, 9, by=pi)
+[1] 1.000000 4.141593 7.283185</code></pre>
+<pre class="r"><code>&gt; seq(17)
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+&gt; seq_len(17)
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17</code></pre>
+<p>Repeat</p>
+<pre class="r"><code>&gt; rep(c(0,1,2), 3)
+[1] 0 1 2 0 1 2 0 1 2
+&gt; rep(c(0,1,2), time=3)
+[1] 0 1 2 0 1 2 0 1 2</code></pre>
+<pre class="r"><code>&gt; rep(c(0,1,2), each=3)
+[1] 0 0 0 1 1 1 2 2 2</code></pre>
+<pre class="r"><code>&gt; rep(c(0,1,2), each=3, times=2)
+ [1] 0 0 0 1 1 1 2 2 2 0 0 0 1 1 1 2 2 2</code></pre>
+<pre class="r"><code>&gt; rep(c(0,1,2), each=3, length.out=21)
+ [1] 0 0 0 1 1 1 2 2 2 0 0 0 1 1 1 2 2 2 0 0 0</code></pre>
+</div>
 </div>
 
 
