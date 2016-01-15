@@ -20,4 +20,5 @@ pollutantmean <- function(directory, pollutant, id=1:332){
     poll_data <- poll_data[!is.na(poll_data)]
     m <- mean(poll_data)
     round(m, 3)
+    
 }
