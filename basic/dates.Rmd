@@ -34,45 +34,50 @@ x <- Sys.time()
 x #[1] "2016-01-14 11:52:33 CST"
 
 p <- as.POSIXlt(x)
-p #[1] "2016-01-14 11:53:53 CST"
+[1] "2016-01-15 13:52:49 CST"
 
 names(unclass(p))
 # "sec"    "min"    "hour"   "mday"   "mon"    "year"   "wday"   "yday"   "isdst"  "zone"  "gmtoff
 
 unclass(p)
-# $sec
-# [1] 5.288614
+> str(unclass(p))
+List of 11
+ $ sec   : num 49.3
+ $ min   : int 52
+ $ hour  : int 13
+ $ mday  : int 15
+ $ mon   : int 0
+ $ year  : int 116
+ $ wday  : int 5
+ $ yday  : int 14
+ $ isdst : int 0
+ $ zone  : chr "CST"
+ $ gmtoff: int -21600
+ - attr(*, "tzone")= chr [1:3] "" "CST" "CDT"
+```
 
-# $min
-# [1] 55
+```R
+> t2$min
+[1] 52
+> weekdays(d1)
+[1] "星期五"
+> months(t1)
+[1] "一月"
+> quarters(t2)
+[1] "Q1
+```
 
-#$hour
-#[1] 11
+```R
+> difftime(Sys.time(), t1, units = 'days')
+Time difference of 0.01489474 days
+```
 
-#$mday
-#[1] 14
+```R
+> Sys.time()>t1
+[1] TRUE
+```
 
-#$mon
-#[1] 0
-
-#$year
-#[1] 116
-
-# $wday
-#[1] 4
-
-# $yday
-# [1] 13
-
-# $isdst
-# [1] 0
-
-# $zone
-# [1] "CST"
-
-# $gmtoff
-# [1] -21600
-
-# attr(,"tzone")
-# [1] ""    "CST" "CDT"
+```R
+t3 <- "October 17, 1986 08:24"
+t4 <- strptime(t3, "%B %d, %Y %H:%M")
 ```
