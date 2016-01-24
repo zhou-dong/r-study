@@ -8,9 +8,14 @@ output: html_document
 
 lapply
 
+always return list
+
 ```R
-> x <- list(a=1:5, b=rnorm(10), c=rnorm(20,1), c=rnorm(100,5))
-> lapply(x, mean)
+x <- list(a=1:5, b=rnorm(10), c=rnorm(20,1), c=rnorm(100,5))
+lapply(x, mean)
+```
+
+```R
 $a
 [1] 3
 $b
@@ -23,8 +28,47 @@ $c
 
 apply
 
+```R
+> x <- matrix(1:16, 4, 4)
+> x
+     [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+```
+
+```R
+> apply(x, 1, mean)
+[1]  7  8  9 10
+```
+
+```R
+> mean(x[1,])
+[1] 7
+> mean(x[2,])
+[1] 8
+> mean(x[3,])
+[1] 9
+> mean(x[4,])
+[1] 10
+```
 mapply
 
+```R
+ mapply(rep, 1:4, 4:1)
+[[1]]
+[1] 1 1 1 1
+
+[[2]]
+[1] 2 2 2
+
+[[3]]
+[1] 3 3
+
+[[4]]
+[1] 4
+```
 tapply
 
 split
