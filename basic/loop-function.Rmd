@@ -1,0 +1,17 @@
+---
+title: "Loop Function"
+author: "Dong Zhou"
+date: "01/24/2016"
+output: html_document
+---
+
+
+lapply
+
+apply
+
+mapply
+
+tapply
+
+split
