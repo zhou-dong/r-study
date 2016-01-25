@@ -72,3 +72,5 @@ mapply
 tapply
 
 split
+
+- Take a vector or other objects and split into groups determined by a factor or list of factors.
