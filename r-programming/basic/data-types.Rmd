@@ -1,0 +1,355 @@
+---
+title: "Data Types of R"
+author: "Dong Zhou"
+date: "01/09/2016"
+output: html_document
+---
+
+### Baisc
+
+---
+
+#### R has five basic or "atomic" classes of objects
+
+- character
+- numeric (real numbers)
+- integer
+- complex
+- logic (True/False)
+
+#### The most baisc object is vector
+
+- A vector and only contain objects of the same class.
+- BUT: The one exception is list, which represent a vector but can contain objects of different classes(indeed, that's usually why we use them)
+
+#### Numbers in R a generally treated as numeric objects
+
+```R
+> typeof(1)
+[1] "double"
+> typeof(1L)
+[1] "integer"
+```
+
+#### Attributes
+
+- names, dimnames
+- dimensions
+- class
+- length
+- other user-defined attributes/metadata 
+
+Attributes of object can be accessed using the attributes() function.
+
+### Creating vectors
+
+---
+
+#### the c() function:
+
+```R
+x <- c(0.5, 0.6)
+y <- c(TRUE, FALSE)
+z <- c(T, F)
+a <- c('a', 'b', 'c')
+b <- 9:20
+c <- c(1+0i, 2+4i)
+```
+
+#### using the vector() function
+
+```R
+x <- vector("numeric", length=10)
+```
+
+#### Mixing Object
+
+```R
+> x <- c(1.7, 'a') 
+> typeof(x)
+[1] "character"
+> x <- c(TRUE, 2)
+> typeof(x)
+[1] "double"
+> x <- c('a', TRUE)
+> typeof(x)
+[1] "character"
+```
+
+#### Explicit Coerction
+
+```R
+> x <- 0:6
+> as.logical(x)
+[1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+> as.numeric(x)
+[1] 0 1 2 3 4 5 6
+> as.character(x)
+[1] "0" "1" "2" "3" "4" "5" "6"
+> as.complex(x)
+[1] 0+0i 1+0i 2+0i 3+0i 4+0i 5+0i 6+0i
+```
+
+#### Nonsensical coercion results NAs.
+
+```R
+> x <- c('a', 'b', 'c')
+> as.numeric(x)
+[1] NA NA NA
+警告信息：
+强制改变过程中产生了NA 
+> as.logical(x)
+[1] NA NA NA
+> as.complex(x)
+[1] NA NA NA
+警告信息：
+强制改变过程中产生了NA 
+```
+
+### Lists
+
+```R
+> x <- list('a' ,1 , TRUE, '1+4i')
+> x
+[[1]]
+[1] "a"
+
+[[2]]
+[1] 1
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] "1+4i"
+```
+
+### Matrix
+
+Matrices are vectors with a dimension attribute. The dimension is itsefl an integer vector of length 2(nrow, ncol)
+
+```R
+> x <- matrix()
+> x
+     [,1]
+[1,]   NA
+>
+> x <- matrix(nrow = 2, ncol = 3)
+> x
+     [,1] [,2] [,3]
+[1,]   NA   NA   NA
+[2,]   NA   NA   NA
+> dim(x)
+[1] 2 3
+> attributes(x)
+$dim
+[1] 2 3
+
+```
+
+Add dimension to matrix or vector
+
+```R
+> m <- 1:6
+> m
+[1] 1 2 3 4 5 6
+> dim(m)
+NULL
+> dim(m) <- c(2,3)
+> m
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> dim(m)
+[1] 2 3
+```
+
+cbind-ing and rbind-ing
+
+```R
+> m <- 1:3
+> n <- 7:9
+> rbind(m,n)
+  [,1] [,2] [,3]
+m    1    2    3
+n    7    8    9
+> cbind(m,n)
+     m n
+[1,] 1 7
+[2,] 2 8
+[3,] 3 9
+```
+
+### Factors
+
+
+```R
+> f <- factor(c('yes','yes','no','yes','no')) ;
+> f
+[1] yes yes no  yes no 
+Levels: no yes
+> table(f)
+f
+ no yes 
+  2   3 
+ > unclass(f)
+[1] 2 2 1 2 1
+attr(,"levels")
+[1] "no"  "yes"
+>
+> f <- factor(c('yes','yes','no','yes','no') , levels = c('yes','no')) 
+> f
+[1] yes yes no  yes no 
+Levels: yes no
+> table(f)
+f
+yes  no 
+  3   2 
+> unclass(f)
+[1] 1 1 2 1 2
+attr(,"levels")
+[1] "yes" "no" 
+
+```
+
+### Missing Values
+
+- NaN: for undefined for mathematical operations
+- NA: for everything is undefined
+- NaN belong to NA
+
+```R
+> x <- c(1, 2, 3, NA, NaN, 5)
+> is.na(x)
+[1] FALSE FALSE FALSE  TRUE  TRUE FALSE
+> is.nan(x)
+[1] FALSE FALSE FALSE FALSE  TRUE FALSE
+```
+
+### Data Frames
+
+Data frames are used to store tabular data.
+
+- They are represented as special types of list
+    + Every element of list has the same length.
+- Data frames also have special attribute call 
+    + row.names
+    + every row in data frames has a name
+- Data frames are usually create by calling 
+    + read.table() or read.csv()
+- Data frames can be converted to a matrix by calling 
+    + data.matrix()
+    
+```R
+> x <- data.frame(Index=1:4, name=c('dong','zhou','snow','snow'), result=c(T,T,T,F)) ;
+> x
+  Index name result
+1     1 dong   TRUE
+2     2 zhou   TRUE
+3     3 snow   TRUE
+4     4 snow  FALSE
+> row.names(x)
+[1] "1" "2" "3" "4"
+```
+
+### Names
+
+All R objects can have names.
+
+```R
+> x <- 1:3
+> x
+[1] 1 2 3
+> names(x)
+NULL
+> names(x) <- c("dong", 'dong', 'snow')
+> names(x)
+[1] "dong" "dong" "snow"
+> x
+dong dong snow 
+   1    2    3 
+> x('dong')
+>
+> x <- list(a=1, b=2, c=3)
+> x
+$a
+[1] 1
+
+$b
+[1] 2
+
+$c
+[1] 3
+
+> names(x)
+[1] "a" "b" "c"
+>
+> x <- matrix(1:4, nrow=2, ncol=2)
+> x
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> dimnames(x) <- list(c('a','b'), c('c','d'))
+> x
+  c d
+a 1 3
+b 2 4
+```
+
+#### sequence
+
+```R
+> 1:4
+[1] 1 2 3 4
+```
+
+```R
+> seq(0,1, length.out = 11)
+ [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+```
+
+```R
+> seq(1, 9, by =2)
+[1] 1 3 5 7 9
+```
+
+```R
+> seq(1, 9, by =3)
+[1] 1 4 7
+```
+
+```R
+> seq(1, 9, by=pi)
+[1] 1.000000 4.141593 7.283185
+```
+
+```R
+> seq(17)
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+> seq_len(17)
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+```
+
+Repeat
+
+```R
+> rep(c(0,1,2), 3)
+[1] 0 1 2 0 1 2 0 1 2
+> rep(c(0,1,2), time=3)
+[1] 0 1 2 0 1 2 0 1 2
+```
+
+```R
+> rep(c(0,1,2), each=3)
+[1] 0 0 0 1 1 1 2 2 2
+```
+
+```R
+> rep(c(0,1,2), each=3, times=2)
+ [1] 0 0 0 1 1 1 2 2 2 0 0 0 1 1 1 2 2 2
+```
+
+```R
+> rep(c(0,1,2), each=3, length.out=21)
+ [1] 0 0 0 1 1 1 2 2 2 0 0 0 1 1 1 2 2 2 0 0 0
+```

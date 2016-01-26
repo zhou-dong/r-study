@@ -1,0 +1,84 @@
+---
+title: "R Function"
+author: "Dong Zhou"
+date: "01/14/2016"
+output: html_document
+---
+
+Function is also an object, like in JavaScript
+
+- Function is an object
+- Function can be pass to another object
+- No return keyword in function
+- Function argument can be matched by name
+
+Example:
+
+```R
+add2 <- function(x, y){
+    x + y
+}
+```
+
+steps of improve function
+
+```R
+x <- 1:20
+above10 <- function(x){
+    use <- x > 10
+    x[use]
+}
+r <- above10(x)
+print(r)
+```
+
+```R
+aboveN <- function(x, n){
+    use <- x > n
+    x[use]
+}
+r <- aboveN(x, 10)
+print(r)
+```
+
+```R
+aboveN <- function(x, n=10){
+    use <- x > n
+    x[use]
+}
+r <- aboveN(x)
+print(r)
+```
+
+Environment
+
+- An environment is a collection of (symble, value) pairs.
+- Every environment has a parent environment; it is possible an environment has muliply children.
+- the only environment without parent is empty environment.
+- A function + an environment = a closure or function closure.
+
+Constructer Function
+
+- the function construnction another function
+
+```R
+make.power <- function(n) {
+    pow <- function(x) {
+        x^n
+    }
+    pow
+}
+square <- make.power(n=2)
+cube <- make.power(3)
+square(3) # 9
+cube(3)  # 27
+```
+
+check environment
+
+```R
+ls(environment(square))
+# [1] "n"   "pow"
+get("n", environment(square))
+# [1] 2
+```

@@ -1,0 +1,35 @@
+---
+title: "Base Graphics"
+author: "Dong Zhou"
+date: "01/26/2016"
+output: html_document
+---
+
+- lattice
+- ggplot2
+- ggvis
+
+```{r}
+summary(cars)
+```
+
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+```r
+plot(x = cars$speed, y = cars$dist)
+```
+
+```{r, echo=FALSE}
+plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance", main = "My Plot", col = 2, pch = 2, sub = "sub title")
+```
+
+```{r, echo=FALSE}
+boxplot(formula = mpg ~ cyl, data = mtcars) 
+```
+
+```{r, echo=FALSE}
+hist(mtcars$mpg)
+```
