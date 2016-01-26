@@ -1,7 +1,93 @@
 ---
-title: "str Function"
+title: "str Function and Simulation"
 author: "Dong Zhou"
 date: "01/25/2016"
 output: html_document
 ---
 
+### str Function
+
+Compactly display the internal structure of an R object, a diagnostic function and an alternative to summary (and to some extent, dput).
+
+```R
+> str(mean)
+function (x, ...)  
+> str(range)
+function (..., na.rm = FALSE)  
+> str(ls)
+function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, pattern) 
+```
+
+```R
+> r <- rnorm(100,2,4)
+> summary(r)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-7.3890  0.1301  2.2980  2.5460  5.1980 15.6600 
+> str(r)
+ num [1:100] 0.586 9.099 0.203 5.813 -0.294 ...
+```
+
+```R
+> m <- matrix(1:16,4,4)
+> str(m)
+ int [1:4, 1:4] 1 2 3 4 5 6 7 8 9 10 ...
+```
+
+### Simulation
+
+```R
+> set.seed(1)
+> rnorm(5)
+[1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078
+
+> rnorm(5)
+[1] -0.8204684  0.4874291  0.7383247  0.5757814 -0.3053884
+
+> set.seed(1)
+> rnorm(5)
+[1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078
+```
+
+```R
+> rpois(10, 1)
+ [1] 3 0 1 0 0 1 0 1 2 0
+```
+
+#### Simulating a Linear Model
+
+```R
+> set.seed(20)
+> x <- rnorm(100)
+> e <- rnorm(100,0,2)
+> y <- 0.5 + 2 * x + e
+> summary(y)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-6.4080 -1.5400  0.6789  0.6893  2.9300  6.5050 
+> plot(x,y)
+```
+
+```R
+> set.seed(10)
+> x <- rbinom(100,1,0.5)
+> e <- rnorm(100,0,2)
+> y <- 0.5 + 2 * x + e
+> summary(y)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-3.4940 -0.1409  1.5770  1.4320  2.8400  6.9410 
+> plot(x,y)
+```
+
+#### Random Sampling
+
+```R
+> sample(1:10, 4)
+[1] 9 7 2 3
+> sample(letters, 4)
+[1] "f" "u" "a" "i"
+> sample(1:10)
+ [1]  8  4  7  1 10  6  5  2  3  9
+> sample(1:10)
+ [1]  3  9  6  2  7  8  5 10  1  4
+> sample(1:10, replace=TRUE)
+ [1]  9  3  1  8  6  8  1 10  2  8
+```
